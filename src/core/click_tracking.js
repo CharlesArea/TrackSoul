@@ -14,7 +14,7 @@ function click_tracking(domain_name, enabled){
          page_position_y = event.pageY,
          client_action = event.type,
          client_cookie_id = Cookie.checkCookie(),
-         client_action_on_element = event.srcElement,
+         // client_action_on_element = event.srcElement,
          click_time = General.millisToMinutesAndSeconds(performance.now()),
          data_type = 'visitor_behaviour',
          client_cookie_id = Cookie.checkCookie(),
@@ -28,7 +28,7 @@ function click_tracking(domain_name, enabled){
        page_position_x: page_position_x,
        page_position_y: page_position_y,
        client_action: client_action,
-       client_action_on_element: client_action_on_element,
+       // client_action_on_element: client_action_on_element,
        click_time: click_time,
        client_cookie_id: client_cookie_id,
        client_ip_address: client_ip_address

@@ -162,7 +162,7 @@
         input_box.addEventListener('input', function(event) {
          var data_type = 'visitor_typing',
              client_cookie_id = checkCookie(),
-             client_action_on_element = event.srcElement,
+             // client_action_on_element = event.srcElement,
              current_visiting_url = window.location.href,
              input_time = millisToMinutesAndSeconds(performance.now()),
              input_data = event.data,
@@ -175,7 +175,7 @@
            client_cookie_id: client_cookie_id,
            client_ip_address: client_ip_address,
            input_time: input_time,
-           client_action_on_element: client_action_on_element,
+           // client_action_on_element: client_action_on_element,
            input_type: input_type,
            input_data: input_data,
          };
@@ -200,7 +200,7 @@
            page_position_y = event.pageY,
            client_action = event.type,
            client_cookie_id = checkCookie(),
-           client_action_on_element = event.srcElement,
+           // client_action_on_element = event.srcElement,
            click_time = millisToMinutesAndSeconds(performance.now()),
            data_type = 'visitor_behaviour',
            client_cookie_id = checkCookie(),
@@ -214,7 +214,7 @@
          page_position_x: page_position_x,
          page_position_y: page_position_y,
          client_action: client_action,
-         client_action_on_element: client_action_on_element,
+         // client_action_on_element: client_action_on_element,
          click_time: click_time,
          client_cookie_id: client_cookie_id,
          client_ip_address: client_ip_address
