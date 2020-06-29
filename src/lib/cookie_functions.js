@@ -28,7 +28,6 @@ function getCookie(cname) {
 function checkCookie() {
     var visitor = getCookie("shiling_tracking");
     if (visitor != "") {
-      console.log(visitor);
       return visitor;
     } else {
       var visitor_id = make_tracking_id();

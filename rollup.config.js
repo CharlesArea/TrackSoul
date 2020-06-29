@@ -6,9 +6,26 @@
  * @Last modified by:   charlesu
  * @Last modified time: 2020-06-29 11:17
  */
- export default {
-   entry: 'src/main.js',
-   dest: 'dist/main.min.js',
-   format: 'iife',
-   sourceMap: 'inline',
- };
+
+import { rollup } from "rollup";
+import { terser } from "rollup-plugin-terser";
+const version_number = '0.0.4'
+
+//Minify
+// export default {
+//   input: 'src/main.js',
+//   output: {
+//     file: 'dist/tracksoul-'+version_number+'.min'+'.js',
+//     format: 'iife'
+//   },
+//   plugins: [terser()],
+// };
+
+//Pure
+export default {
+  input: 'src/main.js',
+  output: {
+    file: 'dist/tracksoul-'+version_number+'.js',
+    format: 'iife'
+  }
+};

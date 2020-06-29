@@ -1,12 +1,3 @@
-/**
- * @Author: Charles Lo <charlesu>
- * @Date:   2020-06-27 11:30
- * @Email:  Developer.CharlesLo@gmail.com
- * @Project: NotesCLI
- * @Last modified by:   charlesu
- * @Last modified time: 2020-06-29 10:58
- */
-
 const sdk_name = 'TrackSoul'
 const data_endpoint = 'https://0a08e46e402c.ngrok.io/users_data'
 const script_domain = document.getElementById(sdk_name).getAttribute("domain_name");
