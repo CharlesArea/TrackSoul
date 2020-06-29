@@ -3,7 +3,7 @@ import * as Cookie from '../lib/cookie_functions.js';
 import {get_client_ip_address} from '../core/basics_info.js';
 
 
-function input_tracking(domain_name, enabled){
+function input_tracking(domain_name, enabled, data_endpoint){
   const input_box = document.querySelector('input');
 
   if(input_box != null){

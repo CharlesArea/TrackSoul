@@ -44,7 +44,7 @@ function make_tracking_id(length = 10) {
   }
 
   //Sending data to api endpoint
-function post_tracking_data(json_data) {
+function post_tracking_data(json_data, data_endpoint) {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", data_endpoint);
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
