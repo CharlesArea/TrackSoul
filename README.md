@@ -7,7 +7,7 @@
 
 TrackSoul is an open-source, cross-platform solution for Event Tracking. It supports Website, Web APP, IOS, Android or even mini-program on WeChat. For more information on using TrackSoul, see the [TrackSoul Website](https://github.com/CharlesArea/TrackSoul).
 
-##### Codeless Tracking Demo Site- [JsFiddle](https://jsfiddle.net/beatyoup/0dga8L52/7/){target="_blank"}
+##### Codeless Tracking Demo Site- [JsFiddle](https://jsfiddle.net/beatyoup/0dga8L52/7/)
 
 # Table of Contents
 
