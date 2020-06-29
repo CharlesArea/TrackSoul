@@ -1,15 +1,4 @@
-/**
- * @Author: Charles Lo <charlesu>
- * @Date:   2020-06-27 11:35
- * @Email:  Developer.CharlesLo@gmail.com
- * @Project: NotesCLI
- * @Last modified by:   charlesu
- * @Last modified time: 2020-06-29 10:28
- */
-
-
-
-  //Get the currect server time
+//Get the currect server time
 function currect_date_time() {
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();;

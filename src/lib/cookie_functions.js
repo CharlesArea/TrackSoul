@@ -1,16 +1,6 @@
-/**
- * @Author: Charles Lo <charlesu>
- * @Date:   2020-06-27 11:44
- * @Email:  Developer.CharlesLo@gmail.com
- * @Project: NotesCLI
- * @Last modified by:   charlesu
- * @Last modified time: 2020-06-29 10:35
- */
-
 import {make_tracking_id, ajax} from './general_functions.js';
 
-
-  //Setting the cookie with value
+//Setting the cookie with value
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));

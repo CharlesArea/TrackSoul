@@ -4,7 +4,7 @@
  * @Email:  Developer.CharlesLo@gmail.com
  * @Project: NotesCLI
  * @Last modified by:   charlesu
- * @Last modified time: 2020-06-29 09:55
+ * @Last modified time: 2020-06-29 11:39
  */
 
  var path = require('path');
@@ -12,7 +12,7 @@
  var app = express();
 
  var dir = path.join(__dirname);
-
+// console.log(dir+'/src/');
  app.use(express.static(dir));
 
 console.log(dir);

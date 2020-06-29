@@ -1,12 +1,3 @@
-/**
- * @Author: Charles Lo <charlesu>
- * @Date:   2020-06-29 10:50
- * @Email:  Developer.CharlesLo@gmail.com
- * @Project: NotesCLI
- * @Last modified by:   charlesu
- * @Last modified time: 2020-06-29 10:57
- */
-
 import * as General from '../lib/general_functions.js';
 import * as Cookie from '../lib/cookie_functions.js';
 import {get_client_ip_address} from '../core/basics_info.js';

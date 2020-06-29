@@ -1,14 +1,4 @@
-/**
- * @Author: Charles Lo <charlesu>
- * @Date:   2020-06-29 10:43
- * @Email:  Developer.CharlesLo@gmail.com
- * @Project: NotesCLI
- * @Last modified by:   charlesu
- * @Last modified time: 2020-06-29 10:45
- */
-
-
- import {ajax} from '../lib/general_functions.js';
+import {ajax} from '../lib/general_functions.js';
 
 
  // Getting trace api from cloudflare to get client IP and turn string to useable variable

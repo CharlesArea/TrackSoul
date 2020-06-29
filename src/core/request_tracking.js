@@ -1,15 +1,6 @@
-/**
- * @Author: Charles Lo <charlesu>
- * @Date:   2020-06-29 10:39
- * @Email:  Developer.CharlesLo@gmail.com
- * @Project: NotesCLI
- * @Last modified by:   charlesu
- * @Last modified time: 2020-06-29 10:45
- */
-
- import * as General from '../lib/general_functions.js';
- import * as Cookie from '../lib/cookie_functions.js';
- import {get_client_ip_address} from '../core/basics_info.js';
+import * as General from '../lib/general_functions.js';
+import * as Cookie from '../lib/cookie_functions.js';
+import {get_client_ip_address} from '../core/basics_info.js';
 
  //Getting the visitor information when accessing the site
  function visitor_information(domain_name) {
