@@ -190,7 +190,7 @@
   }
 
   // Track user click when Config.behaviour_tracking is enabled
-  function click_tracking(domain_name, enabled, data_endpoints){
+  function click_tracking(domain_name, enabled, data_endpoint){
     if (enabled) {
      var page_data = {};
      document.addEventListener("click", function(event) {
@@ -224,7 +224,7 @@
        if (domain_name == currect_domain) {
          console.log(page_data);
          console.log('Data has been successfully logged');
-         post_tracking_data(page_data, data_endpoints);
+         post_tracking_data(page_data, data_endpoint);
        } else {
          console.log(page_data);
          console.log('I cannot post data from another domain');
@@ -234,6 +234,6 @@
 
   input_tracking$1(script_domain, input_tracking);
   click_tracking(script_domain, behaviour_tracking, data_endpoint);
-  visitor_information(script_domain);
+  visitor_information(script_domain, data_endpoint);
 
 }());
