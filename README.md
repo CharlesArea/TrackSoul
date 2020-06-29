@@ -15,6 +15,8 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 	* [Requesting demo screenshot](#Requesting-demo-screenshot-IP-address-hidden)
 	* [Click event demo screenshot](#Click-event-demo-screenshot-IP-address-hidden)
 	* [Input event demo screenshot](#Input-event-demo-screenshot-IP-address-hidden)
+* [SDK Config](#SDK-Config)
+
 
 ## Usage demo screenshots
 #### Requesting demo screenshot (IP address hidden)
@@ -38,4 +40,12 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
   </a>
 </p>
 <br>
+
+## SDK Config
+| Name | Type | Example | Description|
+|--|--|--|--|
+| sdk_name | string | TrackSoul | Our Javascript SDK name |
+| data_endpoint | string | https://tracksoul.com/tracking/data | Set the endpoint where the tracking data send to |
+| input_tracking | boolean | true | Enable / Disable tracking input data |
+| behaviour_tracking | boolean | true | Enable / Disable tracking click data |
 
