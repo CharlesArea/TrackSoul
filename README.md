@@ -12,9 +12,9 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 # Table of Contents
 
 * [Usage demo screenshots](#Usage-demo-screenshots)
-	* [Requesting demo screenshot](#Requesting-demo-screenshot-(IP-address-hidden))
-	* [Click event demo screenshot](#Click-event-demo-screenshot-(IP-address-hidden))
-	* [Input event demo screenshot](#Input-event-demo-screenshot-(IP-address-hidden))
+	* [Requesting demo screenshot](#Requesting-demo-screenshot-IP-address-hidden)
+	* [Click event demo screenshot](#Click-event-demo-screenshot-IP-address-hidden)
+	* [Input event demo screenshot](#Input-event-demo-screenshot-IP-address-hidden)
 
 ## Usage demo screenshots
 #### Requesting demo screenshot (IP address hidden)
