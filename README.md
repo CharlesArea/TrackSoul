@@ -1,11 +1,13 @@
+
 <p align="center">
   <a href="https://github.com/CharlesArea/TrackSoul//">
-    <img width=50% style="padding-top:0px" src="https://i.ibb.co/Qcp1Rb7/logo-transparent.png">
+    <img width=50% style="padding-top:0px" src="https://i.ibb.co/YppXqKY/logo-transparent-1-1.png">
   </a>
 </p>
-<br>
 
-TrackSoul is an open-source, cross-platform solution for Event Tracking. It supports Website, Web APP, IOS, Android or even mini-program on WeChat. For more information on using TrackSoul, see the [TrackSoul Website](https://github.com/CharlesArea/TrackSoul).
+
+
+TrackSoul is an open-source, cross-platform solution for Event Tracking. It supports Website, Web APP, IOS, Android or even mini-program on WeChat. For more information on using TrackSoul, see the [TrackSoul Website](https://github.com/CharlesArea/TrackSoul/)
 
 ##### Codeless Tracking Demo Site- [JsFiddle](https://jsfiddle.net/beatyoup/0dga8L52/7/)
 
@@ -16,6 +18,7 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 	* [Click event demo screenshot](#Click-event-demo-screenshot-IP-address-hidden)
 	* [Input event demo screenshot](#Input-event-demo-screenshot-IP-address-hidden)
 * [SDK Config](#SDK-Config)
+* [Module bundler](#Module-bundler)
 
 
 ## Usage demo screenshots
@@ -49,3 +52,10 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 | input_tracking | boolean | true | Enable / Disable tracking input data |
 | behaviour_tracking | boolean | true | Enable / Disable tracking click data |
 
+## Module bundler
+I have chosen [Roll.js](https://github.com/rollup/rollup) and fall in love ♥ with it
+Simple just run the script below in your terminal / cmd
+```bash
+# compile to a <script> containing a self-executing function
+rollup -c
+```
