@@ -1,0 +1,27 @@
+{
+  "name": "tracksoul-master",
+  "version": "0.0.6",
+  "description": "<p align=\"center\">   <a href=\"https://github.com/CharlesArea/TrackSoul//\">     <img width=50% style=\"padding-top:0px\" src=\"https://i.ibb.co/Qcp1Rb7/logo-transparent.png\">   </a> </p> <br>",
+  "main": "rollup.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CharlesArea/TrackSoul.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CharlesArea/TrackSoul/issues"
+  },
+  "homepage": "https://github.com/CharlesArea/TrackSoul#readme"
+}
