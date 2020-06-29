@@ -19,6 +19,7 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 	* [Input event demo screenshot](#Input-event-demo-screenshot-IP-address-hidden)
 * [SDK Config](#SDK-Config)
 * [Module bundler](#Module-bundler)
+* [Contributors](#Contributors)
 
 
 ## Usage demo screenshots
@@ -59,3 +60,11 @@ Simple just run the script below in your terminal / cmd
 # compile to a <script> containing a self-executing function
 rollup -c
 ```
+
+## Contributors
+
+[//]: contributor-faces
+
+<a href="https://github.com/CharlesArea"><img src="https://avatars0.githubusercontent.com/u/39610333?v=3" title="CharlesArea" width="80" height="80"></a>
+
+[//]: contributor-faces
