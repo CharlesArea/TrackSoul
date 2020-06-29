@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.com/CharlesArea/TrackSoul.svg?token=pxmW9t2DsBfasrmRRuDf&branch=master)](https://travis-ci.com/CharlesArea/TrackSoul)
 <p align="center">
   <a href="https://github.com/CharlesArea/TrackSoul//">
     <img width=50% style="padding-top:0px" src="https://i.ibb.co/YppXqKY/logo-transparent-1-1.png">
