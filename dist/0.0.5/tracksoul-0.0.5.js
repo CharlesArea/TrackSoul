@@ -2,6 +2,7 @@
   'use strict';
 
   const sdk_name = 'TrackSoul';
+  const data_endpoint = 'https://0a08e46e402c.ngrok.io/users_data';
   const script_domain = document.getElementById(sdk_name).getAttribute("domain_name");
   const client_id = document.getElementById(sdk_name).getAttribute("client_id");
   const client_key = document.getElementById(sdk_name).getAttribute("client_key");
@@ -53,7 +54,7 @@
     }
 
     //Sending data to api endpoint
-  function post_tracking_data(json_data) {
+  function post_tracking_data(json_data, data_endpoint) {
       var xhr = new XMLHttpRequest();
       xhr.open("POST", data_endpoint);
       xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
@@ -116,7 +117,7 @@
    }
 
   //Getting the visitor information when accessing the site
-   function visitor_information(domain_name) {
+   function visitor_information(domain_name, data_endpoint) {
      var visitor_data = {};
      var current_visiting_url = window.location.href,
          visitor_from = document.referrer,
@@ -145,7 +146,7 @@
 
      console.log(visitor_data);
      if (domain_name == currect_domain) {
-       post_tracking_data(visitor_data);
+       post_tracking_data(visitor_data, data_endpoint);
        console.log('Data has been successfully logged');
      } else {
        console.log('I cannot post data from another domain');
@@ -153,7 +154,7 @@
      return visitor_data;
    }
 
-  function input_tracking$1(domain_name, enabled){
+  function input_tracking$1(domain_name, enabled, data_endpoint){
     const input_box = document.querySelector('input');
 
     if(input_box != null){
@@ -189,7 +190,7 @@
   }
 
   // Track user click when Config.behaviour_tracking is enabled
-  function click_tracking(domain_name, enabled){
+  function click_tracking(domain_name, enabled, data_endpoints){
     if (enabled) {
      var page_data = {};
      document.addEventListener("click", function(event) {
@@ -223,7 +224,7 @@
        if (domain_name == currect_domain) {
          console.log(page_data);
          console.log('Data has been successfully logged');
-         post_tracking_data(page_data);
+         post_tracking_data(page_data, data_endpoints);
        } else {
          console.log(page_data);
          console.log('I cannot post data from another domain');
@@ -232,7 +233,7 @@
     }}
 
   input_tracking$1(script_domain, input_tracking);
-  click_tracking(script_domain, behaviour_tracking);
+  click_tracking(script_domain, behaviour_tracking, data_endpoint);
   visitor_information(script_domain);
 
 }());
