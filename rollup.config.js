@@ -9,13 +9,13 @@
 
 import { rollup } from "rollup";
 import { terser } from "rollup-plugin-terser";
-const version_number = '0.0.4'
+const version_number = '0.0.5';
 
 //Minify
 // export default {
 //   input: 'src/main.js',
 //   output: {
-//     file: 'dist/tracksoul-'+version_number+'.min'+'.js',
+//     file: 'dist/'+version_number+'/tracksoul-'+version_number+'.min'+'.js',
 //     format: 'iife'
 //   },
 //   plugins: [terser()],
@@ -25,7 +25,7 @@ const version_number = '0.0.4'
 export default {
   input: 'src/main.js',
   output: {
-    file: 'dist/tracksoul-'+version_number+'.js',
+    file: 'dist/'+version_number+'/tracksoul-'+version_number+'.js',
     format: 'iife'
   }
 };
