@@ -16,6 +16,7 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 	* [Click event demo screenshot](#Click-event-demo-screenshot-IP-address-hidden)
 	* [Input event demo screenshot](#Input-event-demo-screenshot-IP-address-hidden)
 * [SDK Config](#SDK-Config)
+* [Module bundler](#Module-bundler)
 
 
 ## Usage demo screenshots
@@ -49,3 +50,10 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 | input_tracking | boolean | true | Enable / Disable tracking input data |
 | behaviour_tracking | boolean | true | Enable / Disable tracking click data |
 
+## Module bundler
+I have chosen [Roll.js](https://github.com/rollup/rollup) and fall in love ♥ with it
+Simple just run the script below in your terminal / cmd
+```bash
+# compile to a <script> containing a self-executing function
+rollup -c
+```
