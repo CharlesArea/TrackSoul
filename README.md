@@ -17,6 +17,7 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 	* [Requesting demo screenshot](#Requesting-demo-screenshot-IP-address-hidden)
 	* [Click event demo screenshot](#Click-event-demo-screenshot-IP-address-hidden)
 	* [Input event demo screenshot](#Input-event-demo-screenshot-IP-address-hidden)
+* [Platform architecture](#Platform-architecture)
 * [SDK Config](#SDK-Config)
 * [Module bundler](#Module-bundler)
 * [Contributors](#Contributors)
@@ -44,6 +45,14 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
   </a>
 </p>
 <br>
+
+## Platform architecture
+
+<p align="center">
+  <a href="https://github.com/CharlesArea/TrackSoul//">
+    <img style="padding-top:0px" src="https://i.ibb.co/L1yrh80/Diagram.png">
+  </a>
+</p>
 
 ## SDK Config
 | Name | Type | Example | Description|
