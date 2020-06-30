@@ -23,6 +23,7 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 * [SDK Config](#SDK-Config)
 * [Module bundler](#Module-bundler)
 * [SDK script usage](#SDK-script-usage)
+* [Releases](#Releases)
 * [Contributors](#Contributors)
 
 ## Description
@@ -98,6 +99,9 @@ Point to an external/internal JavaScript file like below
     <body></body>
 </html>
 ```
+## Releases
+
+Comming soon
 
 ## Contributors
 
