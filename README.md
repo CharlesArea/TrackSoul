@@ -88,13 +88,15 @@ rollup -c
 
 ## SDK script usage
 Point to an external/internal JavaScript file like below
-```bash
+```html
 <html>
-	<head>
-		<!-- Link our Tracksoul dist javascript sdk like below --> 
-		<script src="tracksoul-0.0.1.min.js"></script>
-	</head>
-<body></body>
+	
+    <head>
+    <!-- Link our Tracksoul dist javascript sdk like below --> 
+    <script src="tracksoul-0.0.1.min.js"></script>
+    </head>
+	
+    <body></body>
 </html>
 ```
 
