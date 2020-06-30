@@ -29,6 +29,8 @@ This is a user behavior Javascript SDK planned to support Website, Web APP, WeCh
 
 The only stable method to improve your user experience for your audience is to rely on user behavior data. No matter deciding on enhancing user interface, marketing, make sales, and even predictive analytics. 
 
+Collecting data is not hard, to maximum the efficiency of the data usage is what we wanted to focus on, we wanted to provide a total solution from collecting to analysing.
+
 We wanted to build a long-going maintainable ecosystem for this project to spread out for the freedom of user behavior.
 
 ## Codeless Usage demo screenshots
