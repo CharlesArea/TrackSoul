@@ -13,6 +13,7 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 
 # Table of Contents
 
+* [Description](#Description)
 * [Usage demo screenshots](#Usage-demo-screenshots)
 	* [Requesting demo screenshot](#Requesting-demo-screenshot-IP-address-hidden)
 	* [Click event demo screenshot](#Click-event-demo-screenshot-IP-address-hidden)
@@ -22,6 +23,13 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 * [Module bundler](#Module-bundler)
 * [Contributors](#Contributors)
 
+## Description
+
+This is a user behavior Javascript SDK planned to support Website, Web APP, WeChat mini-program, and Native APP Both Android and IOS in the coming future.
+
+The only stable method to improve your user experience for your audience is to rely on user behavior data. No matter deciding on enhancing user interface, marketing, make sales, and even predictive analytics. 
+
+We wanted to build a long-going maintainable ecosystem for this project to spread out for the freedom of user behavior.
 
 ## Usage demo screenshots
 #### Requesting demo screenshot (IP address hidden)
