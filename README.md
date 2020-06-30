@@ -1,3 +1,4 @@
+
 [![Build Status](https://travis-ci.com/CharlesArea/TrackSoul.svg?token=pxmW9t2DsBfasrmRRuDf&branch=master)](https://travis-ci.com/CharlesArea/TrackSoul)
 <p align="center">
   <a href="https://github.com/CharlesArea/TrackSoul//">
@@ -21,6 +22,7 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 * [Platform architecture](#Platform-architecture)
 * [SDK Config](#SDK-Config)
 * [Module bundler](#Module-bundler)
+* [SDK script usage](#SDK-script-usage)
 * [Contributors](#Contributors)
 
 ## Description
@@ -73,11 +75,27 @@ We wanted to build a long-going maintainable ecosystem for this project to sprea
 | behaviour_tracking | boolean | true | Enable / Disable tracking click data |
 
 ## Module bundler
-I have chosen [Roll.js](https://github.com/rollup/rollup) and fall in love ♥ with it
-Simple just run the script below in your terminal / cmd
+I have chosen [Roll.js](https://github.com/rollup/rollup) and had fall in love ♥ with it
+Simple just install via npm and run the script below in your terminal / cmd
+```bash
+# installing rollup
+npm install --global rollup
+```
 ```bash
 # compile to a <script> containing a self-executing function
 rollup -c
+```
+
+## SDK script usage
+Point to an external/internal JavaScript file like below
+```bash
+<html>
+	<head>
+		<!-- Link our Tracksoul dist javascript sdk like below --> 
+		<script src="tracksoul-0.0.1.min.js"></script>
+	</head>
+<body></body>
+</html>
 ```
 
 ## Contributors
