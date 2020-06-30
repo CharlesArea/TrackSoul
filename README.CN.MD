@@ -8,7 +8,7 @@
 </p>
 
 
- Readme - [English](https://github.com/CharlesArea/TrackSoul/)
+Readme - [English](https://github.com/CharlesArea/TrackSoul/blob/master/README.md)
  
 TrackSoul是用于事件跟踪的开源，跨平台解决方案。 它支持网站，Web APP，IOS，Android甚至微信上的小程序。 有关使用TrackSoul的更多信息，请参见 [TrackSoul Website](https://github.com/CharlesArea/TrackSoul/)
 
