@@ -10,7 +10,6 @@ import {ajax} from '../lib/general_functions.js';
      var split_client_info = client_information.split("\n");;
      var client_ip = split_client_info[2].split('=')[1];
      var client_country_zone = split_client_info[8];
-     console.log('haha',client_ip);
      resolve(client_ip);
      return client_ip;
    })

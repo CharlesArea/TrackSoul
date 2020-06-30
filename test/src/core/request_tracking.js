@@ -16,7 +16,6 @@ import {get_client_ip_address} from '../core/basics_info.js';
        client_cookie_id = Cookie.checkCookie(),
        client_ip_address = get_client_ip_address().then((response) =>{
 
-
            visitor_data = {
              data_type: data_type,
              currect_domain: currect_domain,
@@ -40,5 +39,5 @@ import {get_client_ip_address} from '../core/basics_info.js';
            return visitor_data;
          })
        };
-       
+
  export {visitor_information};

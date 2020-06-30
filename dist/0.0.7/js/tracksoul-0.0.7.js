@@ -124,7 +124,6 @@
        var client_information = client_info.responseText;
        var split_client_info = client_information.split("\n");     var client_ip = split_client_info[2].split('=')[1];
        var client_country_zone = split_client_info[8];
-       console.log('haha',client_ip);
        resolve(client_ip);
        return client_ip;
      });
@@ -144,7 +143,6 @@
          currect_domain = window.location.hostname,
          client_cookie_id = checkCookie(),
          client_ip_address = get_client_ip_address().then((response) =>{
-
 
              visitor_data = {
                data_type: data_type,
@@ -170,40 +168,48 @@
            });
          }
 
-  function input_tracking$1(domain_name, enabled){
+  function input_tracking$1(domain_name, enabled) {
     const input_box = document.querySelector('input');
 
-    if(input_box != null){
-    // Track user input when Config.input_tracking is enabled
+    if (input_box != null) {
+      // Track user input when Config.input_tracking is enabled
       if (enabled) {
         input_box.addEventListener('input', function(event) {
-         var data_type = 'visitor_typing',
-             client_cookie_id = checkCookie(),
-             element_xpath = getXPathForElement(event.srcElement),
-             current_visiting_url = window.location.href,
-             input_time = millisToMinutesAndSeconds(performance.now()),
-             input_data = event.data,
-             input_type = event.inputType,
-             client_ip_address = get_client_ip_address().then((response) =>{
+          var data_type = 'visitor_typing',
+            client_cookie_id = checkCookie(),
+            element_xpath = getXPathForElement(event.srcElement),
+            current_visiting_url = window.location.href,
+            input_time = millisToMinutesAndSeconds(performance.now()),
+            input_data = event.data,
+            input_type = event.inputType,
+            // client_ip_address = get_client_ip_address().then((response) =>{
 
-                 input_data = {
-                   data_type: data_type,
-                   current_visiting_url: current_visiting_url,
-                   client_cookie_id: client_cookie_id,
-                   client_ip_address: response,
-                   element_xpath:element_xpath,
-                   input_time: input_time,
-                   input_type: input_type,
-                   input_data: input_data,
-                 };
-                 console.log(input_data);
-                });
+            input_data = {
+              data_type: data_type,
+              current_visiting_url: current_visiting_url,
+              client_cookie_id: client_cookie_id,
+              // client_ip_address: response,
+              element_xpath: element_xpath,
+              input_time: input_time,
+              input_type: input_type,
+              input_data: input_data,
+            };
+
+          var currect_domain = window.location.hostname;
+          if (domain_name == currect_domain) {
+            console.log(input_data);
+            console.log('Data has been successfully logged');
+            post_tracking_data(page_data);
+          } else {
+            console.log(input_data);
+            console.log('I cannot post data from another domain');
+          }
         });
-        }
-      }
-      else {
-        return null;
-      }
+      // });
+    }
+  } else {
+    return null;
+  }
   }
 
   // Track user click when Config.behaviour_tracking is enabled
@@ -221,8 +227,10 @@
            click_time = millisToMinutesAndSeconds(performance.now()),
            data_type = 'visitor_behaviour',
            client_cookie_id = checkCookie(),
-           element_xpath = getXPathForElement(event.srcElement),
-           client_ip_address = get_client_ip_address().then((response) =>{
+           element_xpath = getXPathForElement(event.srcElement);
+           
+           // Disable getting ip address for each clicking behavior
+           // client_ip_address = get_client_ip_address().then((response) =>{
 
            page_data = {
              data_type: data_type,
@@ -234,8 +242,8 @@
              client_action: client_action,
              element_xpath: element_xpath,
              click_time: click_time,
-             client_cookie_id: client_cookie_id,
-             client_ip_address: response
+             client_cookie_id: client_cookie_id
+             // client_ip_address: response
            };
 
              var currect_domain = window.location.hostname;
@@ -247,9 +255,10 @@
                console.log(page_data);
                console.log('I cannot post data from another domain');
              }
-           });
-   });
-  }}
+
+           // })
+         });
+       }}
 
   input_tracking$1(script_domain, input_tracking);
   click_tracking(script_domain, behaviour_tracking);
