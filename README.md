@@ -90,12 +90,11 @@ rollup -c
 Point to an external/internal JavaScript file like below
 ```html
 <html>
-	
     <head>
     <!-- Link our Tracksoul dist javascript sdk like below --> 
     <script src="tracksoul-0.0.1.min.js"></script>
     </head>
-	
+
     <body></body>
 </html>
 ```
