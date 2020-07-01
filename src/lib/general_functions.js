@@ -85,5 +85,6 @@ export {
   make_tracking_id,
   post_tracking_data,
   millisToMinutesAndSeconds,
-  getXPathForElement
+  getXPathForElement,
+  getElementByXPath
 }

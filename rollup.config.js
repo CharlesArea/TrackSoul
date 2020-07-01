@@ -8,7 +8,7 @@
  */
 
 import { terser } from "rollup-plugin-terser";
-const version_number = '0.0.7';
+const version_number = '0.0.8';
 
 export default [{
   input: 'src/main.js',
