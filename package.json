@@ -1,6 +1,6 @@
 {
   "name": "tracksoul-master",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "<p align=\"center\">   <a href=\"https://github.com/CharlesArea/TrackSoul//\">     <img width=50% style=\"padding-top:0px\" src=\"https://i.ibb.co/Qcp1Rb7/logo-transparent.png\">   </a> </p> <br>",
   "main": "rollup.config.js",
   "directories": {

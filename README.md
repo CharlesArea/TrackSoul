@@ -1,4 +1,3 @@
-
 [![Build Status](https://travis-ci.com/CharlesArea/TrackSoul.svg?token=pxmW9t2DsBfasrmRRuDf&branch=master)](https://travis-ci.com/CharlesArea/TrackSoul)
 <p align="center">
   <a href="https://github.com/CharlesArea/TrackSoul//">
@@ -10,7 +9,7 @@ Readme - [中文](https://github.com/CharlesArea/TrackSoul/blob/master/README.CN
 
 TrackSoul is an open-source, cross-platform solution for Event Tracking. It supports Website, Web APP, IOS, Android or even mini-program on WeChat. For more information on using TrackSoul, see the [TrackSoul Website](https://github.com/CharlesArea/TrackSoul/)
 
-##### Codeless Tracking Demo Site- [JsFiddle](https://jsfiddle.net/beatyoup/0dga8L52/7/) (Remember open console in order to see the effect)
+##### Codeless Tracking Demo Site- [JsFiddle](https://jsfiddle.net/beatyoup/0dga8L52/7/) (Remember to open console in order to see the effect)
 
 # Table of Contents
 
@@ -25,7 +24,6 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 * [Module bundler](#Module-bundler)
 * [SDK script usage](#SDK-script-usage)
 * [Releases](#Releases)
-* [Contributors](#Contributors)
 
 ## Description
 
@@ -109,11 +107,3 @@ Point to an external/internal JavaScript file like below
 ## Releases
 
 Comming soon
-
-## Contributors
-
-[//]: contributor-faces
-
-<a href="https://github.com/CharlesArea"><img src="https://avatars0.githubusercontent.com/u/39610333?v=3" title="CharlesArea" width="80" height="80"></a>
-
-[//]: contributor-faces

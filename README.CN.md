@@ -1,5 +1,3 @@
-
-
 [![Build Status](https://travis-ci.com/CharlesArea/TrackSoul.svg?token=pxmW9t2DsBfasrmRRuDf&branch=master)](https://travis-ci.com/CharlesArea/TrackSoul)
 <p align="center">
   <a href="https://github.com/CharlesArea/TrackSoul//">
@@ -25,7 +23,6 @@ TrackSoul是用于事件跟踪的开源，跨平台解决方案。 它支持网�
 * [SDK配置](#SDK配置)
 * [模块打包](#模块打包)
 * [脚本使用方法](#脚本使用方法)
-* [贡献者](#贡献者)
 
 ## 项目介绍
 
@@ -102,10 +99,4 @@ rollup -c
 </html>
 ```
 
-## 贡献者
 
-[//]: contributor-faces
-
-<a href="https://github.com/CharlesArea"><img src="https://avatars0.githubusercontent.com/u/39610333?v=3" title="CharlesArea" width="80" height="80"></a>
-
-[//]: contributor-faces
