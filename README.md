@@ -10,7 +10,7 @@ Readme - [中文](https://github.com/CharlesArea/TrackSoul/blob/master/README.CN
 
 TrackSoul is an open-source, cross-platform solution for Event Tracking. It supports Website, Web APP, IOS, Android or even mini-program on WeChat. For more information on using TrackSoul, see the [TrackSoul Website](https://github.com/CharlesArea/TrackSoul/)
 
-##### Codeless Tracking Demo Site- [JsFiddle](https://jsfiddle.net/beatyoup/0dga8L52/7/)
+##### Codeless Tracking Demo Site- [JsFiddle](https://jsfiddle.net/beatyoup/0dga8L52/7/) (Remember open console in order to see the effect)
 
 # Table of Contents
 
@@ -19,6 +19,7 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 	* [Requesting demo screenshot](#Requesting-demo-screenshot-IP-address-hidden)
 	* [Click event demo screenshot](#Click-event-demo-screenshot-IP-address-hidden)
 	* [Input event demo screenshot](#Input-event-demo-screenshot-IP-address-hidden)
+* [Specific tracking Usage demo example](#Specific-tracking-Usage-demo-example)
 * [Platform architecture](#Platform-architecture)
 * [SDK Config](#SDK-Config)
 * [Module bundler](#Module-bundler)
@@ -59,6 +60,12 @@ We wanted to build a long-going maintainable ecosystem for this project to sprea
 </p>
 <br>
 
+## Specific tracking Usage demo example
+
+```js
+specific_tracking(Config.script_domain, Config.specific_tracking, 'http://localhost:3000/index.html', '/html[1]/body[1]/h1[3]', 'Test Specifc path');
+
+```
 ## Platform architecture
 
 <p align="center">
