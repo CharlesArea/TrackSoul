@@ -14,16 +14,16 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 # Table of Contents
 
 * [Description](#Description)
-* [Codeless Usage demo screenshots](#Codeless-Usage-demo-screenshots)
+* [Platform architecture](#Platform-architecture)
+* [Codeless tracking Usage example screenshots](#Codeless-Usage-demo-screenshots)
 	* [Requesting demo screenshot](#Requesting-demo-screenshot-IP-address-hidden)
 	* [Click event demo screenshot](#Click-event-demo-screenshot-IP-address-hidden)
 	* [Input event demo screenshot](#Input-event-demo-screenshot-IP-address-hidden)
-* [Specific tracking Usage demo example](#Specific-tracking-Usage-demo-example)
-* [Platform architecture](#Platform-architecture)
+* [Specific tracking path Usage demo example](#Specific-tracking-Usage-demo-example)
 * [SDK Config](#SDK-Config)
 * [Module bundler](#Module-bundler)
 * [SDK script usage](#SDK-script-usage)
-* [Releases](#Releases)
+* [SDK Releases](#SDK-Releases)
 
 ## Description
 
@@ -34,6 +34,14 @@ The only stable method to improve your user experience for your audience is to r
 Collecting data is not hard, to maximum the efficiency of the data usage is what we wanted to focus on, we wanted to provide a total solution from collecting to analysing.
 
 We wanted to build a long-going maintainable ecosystem for this project to spread out for the freedom of user behavior.
+
+## Platform architecture
+
+<p align="center">
+  <a href="https://github.com/CharlesArea/TrackSoul//">
+    <img style="padding-top:0px" src="https://i.ibb.co/L1yrh80/Diagram.png">
+  </a>
+</p>
 
 ## Codeless Usage demo screenshots
 #### Requesting demo screenshot (IP address hidden)
@@ -64,13 +72,6 @@ We wanted to build a long-going maintainable ecosystem for this project to sprea
 specific_tracking(Config.script_domain, Config.specific_tracking, 'http://localhost:3000/index.html', '/html[1]/body[1]/h1[3]', 'Test Specifc path');
 
 ```
-## Platform architecture
-
-<p align="center">
-  <a href="https://github.com/CharlesArea/TrackSoul//">
-    <img style="padding-top:0px" src="https://i.ibb.co/L1yrh80/Diagram.png">
-  </a>
-</p>
 
 ## SDK Config
 | Name | Type | Example | Description|
@@ -104,6 +105,7 @@ Point to an external/internal JavaScript file like below
     <body></body>
 </html>
 ```
-## Releases
+## SDK Releases
 
 Comming soon
+
