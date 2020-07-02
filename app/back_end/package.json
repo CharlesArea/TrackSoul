@@ -1,0 +1,28 @@
+{
+  "name": "back_end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --experimental-worker index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "express": "^4.17.1",
+    "extract-zip": "^2.0.0",
+    "image-to-base64": "^2.0.1",
+    "jimp": "^0.10.3",
+    "jszip": "^3.4.0",
+    "moment": "^2.24.0",
+    "mongodb": "^3.5.7",
+    "mongoose": "^5.9.13",
+    "multer": "^1.4.2",
+    "opencc": "^1.1.1",
+    "pdf-to-base64": "^1.0.2",
+    "pdf2html": "^2.5.2",
+    "request": "^2.88.2"
+  }
+}
