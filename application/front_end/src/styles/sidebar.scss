@@ -74,8 +74,9 @@
 
     // for submenu
     .el-menu--inline {
-      width: 85% !important;
-      margin: 0 auto;
+      width: 80% !important;
+      margin: 20px auto 20px auto;
+      // margin: 0 auto;
       border: 3px solid white !important;
       border-radius: 10px;
     }
@@ -212,7 +213,8 @@
     &:hover {
       // you can use $subMenuHover
       // background-color: $menuHover !important;
-      color: $menuTextHover !important;
+      // color: $menuTextHover !important;
+      color: black !important;
     }
   }
 

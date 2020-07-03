@@ -26,7 +26,7 @@ export default {
   },
   data() {
     return {
-      title: '中小企業借貸',
+      title: 'TrackSoul',
       logo: 'assets/images/TrackSoul.png'
     }
   }
@@ -65,10 +65,13 @@ hr.sidebar-divider {
     width: 100%;
 
     & .sidebar-logo {
-      width: 133px;
-      height: 100px;
+      width: 100%;
+      height: 120px;
       vertical-align: middle;
-      margin-top: 18.5px;
+      // margin-top: 18.5px;
+      // border:black 1px solid;
+      // border-radius: 5%;
+      background-color: white;
       // margin-right: 38.5px;
     }
 

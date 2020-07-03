@@ -22,7 +22,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            增加項目
+              Add Application
           </div>
         </div>
       </div>

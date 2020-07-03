@@ -17,7 +17,7 @@
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
           <router-link to="/">
             <el-dropdown-item>
-              主面板
+              Dashboard
             </el-dropdown-item>
           </router-link>
           <el-dropdown-item divided @click.native="logout">

@@ -1,7 +1,7 @@
 <template>
   <div :class="{'has-logo':showLogo}">
     <logo v-if="showLogo" :collapse="isCollapse" />
-    <div style="font-weight:50;">實營數據 <sup>2</sup></div>
+    <div style="font-weight:50;">TrackSoul <sup>2</sup></div>
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         ref="menu"
@@ -80,7 +80,7 @@ export default {
         path: 'dashboard',
         name: 'Dashboard',
         hidden: false,
-        meta: { title: '主面板', icon: 'dashboard' }
+        meta: { title: 'Dashboard', icon: 'dashboard' }
       }]
       var pathList = []
       appList.forEach((item, index) => {

@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    <h1> 所有追踪應用 </h1>
+    <h1> All tracking applications -  </h1>
     <panel-group :panel-data="panelData" />
   </div>
 </template>
