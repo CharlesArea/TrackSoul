@@ -2,7 +2,7 @@
 [![star](https://gitee.com/CharlesArea/TrackSoul/badge/star.svg?theme=dark)](https://gitee.com/CharlesArea/TrackSoul/stargazers)
 <p align="center">
   <a href="https://github.com/CharlesArea/TrackSoul//">
-    <img width='50%' style="padding-top:0px" src="https://images.gitee.com/uploads/images/2020/0703/201740_3cd703d0_7753386.png">
+    <img width="50%" style="padding-top:0px" src="https://i.ibb.co/Qcp1Rb7/logo-transparent.png">
   </a>
 </p>
  
@@ -116,7 +116,7 @@ Coming soon
 #### Adding a tracking point
 <p align="center">
   <a href="https://github.com/CharlesArea/TrackSoul//">
-    <img width="100%" style="padding-top:0px" src="https://images.gitee.com/uploads/images/2020/0703/201741_132b39cf_7753386.png">
+    <img style="padding-top:0px" src="https://i.ibb.co/Q9sVs1F/Screenshot-2020-07-03-at-10-31-21-AM.png">
   </a>
 </p>
  
