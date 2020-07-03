@@ -25,6 +25,8 @@ TrackSoul is an open-source, cross-platform solution for Event Tracking. It supp
 * [Module bundler](#Module-bundler)
 * [SDK script usage](#SDK-script-usage)
 * [SDK Releases](#SDK-Releases)
+* [Application analysis panel](#Application-analysis-panel)
+	* [Adding a tracking point](#Adding-a-tracking-point)
 
 ## Description
 
@@ -110,3 +112,11 @@ Point to an external/internal JavaScript file like below
 
 Comming soon
 
+## Application analysis panel
+#### Adding a tracking point
+<p align="center">
+  <a href="https://github.com/CharlesArea/TrackSoul//">
+    <img style="padding-top:0px" src="https://i.ibb.co/NxwqwH6/Screenshot-2020-07-03-at-10-31-21-AM.png">
+  </a>
+</p>
+ 
