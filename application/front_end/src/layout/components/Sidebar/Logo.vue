@@ -10,7 +10,7 @@
         <!-- <h1 class="sidebar-title">{{ title }} </h1> -->
       </router-link>
     </transition>
-    <hr class="sidebar-divider">
+    <!-- <hr class="sidebar-divider"> -->
   </div>
 
 </template>

@@ -4,11 +4,12 @@
       <!--            Step 1                  -->
       <div v-if="curStep==1" style="height:350px">
         <span>
-          Select your application needed to be tracked
+          Select your application platform that needed to be tracked
+          
           <el-row :gutter="20" style="margin:15px 0px;">
             <el-col v-for="(item, index) in appList" :key="index" :span="8">
               <el-card :body-style="{ padding: '0px' }" class="appSelectType" :class="item.selected ? 'selectedItem' : ''" @click.native="selectType(index)">
-                <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" class="image">
+                <img :src="item.imgSrc" class="image">
                 <div style="padding: 14px;">
                   <span>{{ item.appType }}</span>
                 </div>
@@ -62,19 +63,19 @@ export default {
     return {
       dialog: {
         visible: false,
-        title: 'Step by Step (first step)'
+        title: 'Adding your application (Choose your platform)'
       },
       appList: [{
-        appType: 'web',
-        imgSrc: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
+        appType: 'Website',
+        imgSrc: 'https://www.w3.org/html/logo/img/html5-display.png',
         selected: false
       }, {
-        appType: 'app',
-        imgSrc: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
+        appType: 'Wechat Mini-Program',
+        imgSrc: 'https://assets.materialup.com/uploads/e3e4dd46-9ff9-4735-ad16-5ac8370d1e1a/preview.png',
         selected: false
       }, {
-        appType: 'web',
-        imgSrc: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
+        appType: 'Android',
+        imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Android_logo_2019.svg',
         selected: false
       }],
       selectedApp: -1,
@@ -145,6 +146,12 @@ export default {
 .selectedItem{
     border: 3px solid red;
     /* box-shadow: 0 0 0 3px red; */
+}
+
+.image{
+  width:100%;
+  height:260px;
+  padding-top:10px;
 }
 
 </style>
