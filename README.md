@@ -2,7 +2,7 @@
 [![star](https://gitee.com/CharlesArea/TrackSoul/badge/star.svg?theme=dark)](https://gitee.com/CharlesArea/TrackSoul/stargazers)
 <p align="center">
   <a href="https://github.com/CharlesArea/TrackSoul//">
-    <img width=50% style="padding-top:0px" src="https://i.ibb.co/Qcp1Rb7/logo-transparent.png">
+    <img width=50% style="padding-top:0px" src="https://images.gitee.com/uploads/images/2020/0703/201740_3cd703d0_7753386.png">
   </a>
 </p>
  
@@ -42,7 +42,7 @@ We wanted to build a long-going maintainable ecosystem for this project to sprea
 
 <p align="center">
   <a href="https://github.com/CharlesArea/TrackSoul//">
-    <img style="padding-top:0px" src="https://i.ibb.co/L1yrh80/Diagram.png">
+    <img style="padding-top:0px" src="https://images.gitee.com/uploads/images/2020/0703/201740_681af1ef_7753386.png">
   </a>
 </p>
 
@@ -50,21 +50,21 @@ We wanted to build a long-going maintainable ecosystem for this project to sprea
 #### Requesting demo screenshot (IP address hidden)
 <p align="center">
   <a href="https://jsfiddle.net/beatyoup/0dga8L52/7/">
-    <img style="padding-top:0px" src="https://i.ibb.co/vJdJJQh/Screenshot-2020-06-29-at-2-15-31-PM.png">
+    <img style="padding-top:0px" src="https://images.gitee.com/uploads/images/2020/0703/201740_7ba8064d_7753386.png">
   </a>
 </p>
 
 #### Click event demo screenshot (IP address hidden)
 <p align="center">
   <a href="https://jsfiddle.net/beatyoup/0dga8L52/7/">
-    <img style="padding-top:0px" src="https://i.ibb.co/94wr1PS/Screenshot-2020-06-29-at-2-17-53-PM.png">
+    <img style="padding-top:0px" src="https://images.gitee.com/uploads/images/2020/0703/201741_304aec0c_7753386.png">
   </a>
 </p>
 
 #### Input event demo screenshot (IP address hidden)
 <p align="center">
   <a href="https://jsfiddle.net/beatyoup/0dga8L52/7/">
-    <img style="padding-top:0px" src="https://i.ibb.co/Kyp35bB/Screenshot-2020-06-29-at-2-19-16-PM.png">
+    <img style="padding-top:0px" src="https://images.gitee.com/uploads/images/2020/0703/201740_79cfe9a0_7753386.png">
   </a>
 </p>
 <br>
@@ -110,13 +110,13 @@ Point to an external/internal JavaScript file like below
 ```
 ## SDK Releases
 
-Comming soon
+Coming soon
 
 ## Application analysis panel
 #### Adding a tracking point
 <p align="center">
   <a href="https://github.com/CharlesArea/TrackSoul//">
-    <img style="padding-top:0px" src="https://i.ibb.co/NxwqwH6/Screenshot-2020-07-03-at-10-31-21-AM.png">
+    <img width=100% style="padding-top:0px" src="https://images.gitee.com/uploads/images/2020/0703/201741_132b39cf_7753386.png">
   </a>
 </p>
  
