@@ -42,7 +42,7 @@ We wanted to build a long-going maintainable ecosystem for this project to sprea
 
 <p align="center">
   <a href="https://github.com/CharlesArea/TrackSoul//">
-    <img style="padding-top:0px" src="https://images.gitee.com/uploads/images/2020/0703/201740_681af1ef_7753386.png">
+    <img style="padding-top:0px" src="https://i.ibb.co/1nYMzyF/Diagram.png">
   </a>
 </p>
 
@@ -50,21 +50,21 @@ We wanted to build a long-going maintainable ecosystem for this project to sprea
 #### Requesting demo screenshot (IP address hidden)
 <p align="center">
   <a href="https://jsfiddle.net/beatyoup/0dga8L52/7/">
-    <img style="padding-top:0px" src="https://images.gitee.com/uploads/images/2020/0703/201740_7ba8064d_7753386.png">
+    <img style="padding-top:0px" src="https://github.com/CharlesArea/TrackSoul/blob/master/tracking_demo/screenshots/client_requesting.png?raw=true">
   </a>
 </p>
 
 #### Click event demo screenshot (IP address hidden)
 <p align="center">
   <a href="https://jsfiddle.net/beatyoup/0dga8L52/7/">
-    <img style="padding-top:0px" src="https://images.gitee.com/uploads/images/2020/0703/201741_304aec0c_7753386.png">
+    <img style="padding-top:0px" src="https://github.com/CharlesArea/TrackSoul/blob/master/tracking_demo/screenshots/client_clicking.png?raw=true">
   </a>
 </p>
 
 #### Input event demo screenshot (IP address hidden)
 <p align="center">
   <a href="https://jsfiddle.net/beatyoup/0dga8L52/7/">
-    <img style="padding-top:0px" src="https://images.gitee.com/uploads/images/2020/0703/201740_79cfe9a0_7753386.png">
+    <img style="padding-top:0px" src="https://github.com/CharlesArea/TrackSoul/blob/master/tracking_demo/screenshots/client_typing.png?raw=true">
   </a>
 </p>
 <br>
