@@ -35,6 +35,11 @@
       transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
     }
 
+
+    //Submenu edit padding 
+    // .el-menu-item{
+    //   padding-left:0px !important;
+    // }
     .scrollbar-wrapper {
       overflow-x: hidden !important;
     }
@@ -109,7 +114,7 @@
     & .el-submenu .el-menu-item {
       min-width: $sideBarWidth !important;
       background-color: $subMenuBg !important;
-
+      color:#6E6263 !important;
       &:hover {
         background-color: $subMenuHover !important;
       }

@@ -10,6 +10,9 @@
           <div class="card-panel-text">
             {{ item.meta.title }}
           </div>
+          <div class="carrd-detail-text">
+            www.topunions.coom
+          </div>
         </div>
       </div>
     </el-col>
@@ -189,6 +192,7 @@ export default {
         color: rgba(0, 0, 0, 0.45);
         font-size: 16px;
         margin-bottom: 12px;
+        float:right;
       }
 
       .card-panel-num {

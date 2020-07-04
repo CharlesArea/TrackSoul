@@ -91,13 +91,13 @@ export default {
           children: [{
             hidden: false,
             path: '/appDetail?info=' + item.appId,
-            name: '實時儀表板',
-            meta: { title: '實時儀表板', icon: 'example' }
+            name: 'Real_Time_Data_Dashboard',
+            meta: { title: 'Real-Time Data', icon: 'example' }
           }, {
             hidden: false,
             path: '/LocData?info=' + item.appId,
-            name: '地區分佈',
-            meta: { title: '地區分佈', icon: 'example' }
+            name: 'Visitor_Map',
+            meta: { title: 'Visitor Map', icon: 'example' }
           }]
         }
         pathList.push(path_obj)
