@@ -26,13 +26,13 @@ function getCookie(cname) {
 
   //Checking if the Cookie exsit, generate one if none
 function checkCookie() {
-    var visitor = getCookie("tracksoul");
+    var visitor = getCookie("shiling_tracking");
     if (visitor != "") {
       return visitor;
     } else {
       var visitor_id = make_tracking_id();
       if (visitor_id != "" && visitor_id != null) {
-        setCookie("tracksoul", visitor_id, 365);
+        setCookie("shiling_tracking", visitor_id, 365);
         return false;
       }
     }

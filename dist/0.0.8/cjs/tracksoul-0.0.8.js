@@ -151,7 +151,7 @@ function checkCookie() {
        client_cookie_id = checkCookie(),
        client_ip_address = get_client_ip_address().then((response) =>{
 
-           visitor_data = {
+           visitor_data = {result:{
              data_type: data_type,
              currect_domain: currect_domain,
              current_visiting_url: current_visiting_url,
@@ -162,7 +162,9 @@ function checkCookie() {
              server_time: server_time,
              client_cookie_id: client_cookie_id,
              client_ip_address: response
-           };
+           },
+           status_code: 200
+          };
 
            console.log(visitor_data);
            if (domain_name == currect_domain) {
@@ -189,18 +191,18 @@ function input_tracking$1(domain_name, enabled) {
           input_time = millisToMinutesAndSeconds(performance.now()),
           input_data = event.data,
           input_type = event.inputType,
-          // client_ip_address = get_client_ip_address().then((response) =>{
 
-          input_data = {
+          input_data = {result:{
             data_type: data_type,
             current_visiting_url: current_visiting_url,
             client_cookie_id: client_cookie_id,
-            // client_ip_address: response,
             element_xpath: element_xpath,
             input_time: input_time,
             input_type: input_type,
             input_data: input_data,
-          };
+          },
+          status_code: 200
+        };
 
         var currect_domain = window.location.hostname;
         if (domain_name == currect_domain) {
@@ -212,7 +214,6 @@ function input_tracking$1(domain_name, enabled) {
           console.log('I cannot post data from another domain');
         }
       });
-    // });
   }
 } else {
   return null;
@@ -233,14 +234,14 @@ async function click_tracking(domain_name, enabled){
          client_cookie_id = checkCookie(),
          click_time = millisToMinutesAndSeconds(performance.now()),
          data_type = 'visitor_behaviour',
+         data_type_code = 1,
          client_cookie_id = checkCookie(),
          element_xpath = getXPathForElement(event.srcElement);
          
-         // Disable getting ip address for each clicking behavior
-         // client_ip_address = get_client_ip_address().then((response) =>{
-
-         page_data = {
+         page_data = {result: {
+           data_type_code:data_type_code,
            data_type: data_type,
+           client_cookie_id: client_cookie_id,
            current_visiting_url: current_visiting_url,
            client_position_x: client_position_x,
            client_position_y: client_position_y,
@@ -248,10 +249,10 @@ async function click_tracking(domain_name, enabled){
            page_position_y: page_position_y,
            client_action: client_action,
            element_xpath: element_xpath,
-           click_time: click_time,
-           client_cookie_id: client_cookie_id
-           // client_ip_address: response
-         };
+           click_time: click_time
+         },
+         status_code: 200
+        };
 
            var currect_domain = window.location.hostname;
            if (domain_name == currect_domain) {
@@ -262,8 +263,6 @@ async function click_tracking(domain_name, enabled){
              console.log(page_data);
              console.log('I cannot post data from another domain');
            }
-
-         // })
        });
      }}
 
@@ -287,7 +286,7 @@ async function specific_tracking$1(domain_name, enabled, active_domain, xpath, v
             element_xpath = getXPathForElement(event.srcElement);
             value_for = value_for;
 
-            specific_data = {
+            specific_data = {result:{
             data_type: data_type,
             current_visiting_url: current_visiting_url,
             client_position_x: client_position_x,
@@ -299,7 +298,9 @@ async function specific_tracking$1(domain_name, enabled, active_domain, xpath, v
             click_time: click_time,
             client_cookie_id: client_cookie_id,
             value_for: value_for
-            };
+            },
+            status_code: 200
+        };
 
             var currect_domain = window.location.hostname;
             if (domain_name == currect_domain) {
@@ -318,10 +319,9 @@ async function specific_tracking$1(domain_name, enabled, active_domain, xpath, v
     }
 }}
 
+visitor_information(script_domain);
 input_tracking$1(script_domain, input_tracking);
 click_tracking(script_domain, behaviour_tracking);
 
 //User can define Specific tracking point based on their needs
 specific_tracking$1(script_domain, specific_tracking, 'http://localhost:3000/index.html', '/html[1]/body[1]/h1[3]', 'Test Specifc path');
-
-visitor_information(script_domain);

@@ -19,18 +19,18 @@ function input_tracking(domain_name, enabled) {
           input_time = General.millisToMinutesAndSeconds(performance.now()),
           input_data = event.data,
           input_type = event.inputType,
-          // client_ip_address = get_client_ip_address().then((response) =>{
 
-          input_data = {
+          input_data = {result:{
             data_type: data_type,
             current_visiting_url: current_visiting_url,
             client_cookie_id: client_cookie_id,
-            // client_ip_address: response,
             element_xpath: element_xpath,
             input_time: input_time,
             input_type: input_type,
             input_data: input_data,
-          }
+          },
+          status_code: 200
+        }
 
         var currect_domain = window.location.hostname;
         if (domain_name == currect_domain) {
@@ -42,7 +42,6 @@ function input_tracking(domain_name, enabled) {
           console.log('I cannot post data from another domain')
         }
       });
-    // });
   }
 } else {
   return null;

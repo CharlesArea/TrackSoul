@@ -22,7 +22,7 @@ async function specific_tracking(domain_name, enabled, active_domain, xpath, val
             element_xpath = General.getXPathForElement(event.srcElement);
             value_for = value_for;
 
-            specific_data = {
+            specific_data = {result:{
             data_type: data_type,
             current_visiting_url: current_visiting_url,
             client_position_x: client_position_x,
@@ -34,7 +34,9 @@ async function specific_tracking(domain_name, enabled, active_domain, xpath, val
             click_time: click_time,
             client_cookie_id: client_cookie_id,
             value_for: value_for
-            }
+            },
+            status_code: 200
+        }
 
             var currect_domain = window.location.hostname;
             if (domain_name == currect_domain) {

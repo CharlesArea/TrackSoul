@@ -16,7 +16,7 @@ import {get_client_ip_address} from '../core/basics_info.js';
        client_cookie_id = Cookie.checkCookie(),
        client_ip_address = get_client_ip_address().then((response) =>{
 
-           visitor_data = {
+           visitor_data = {result:{
              data_type: data_type,
              currect_domain: currect_domain,
              current_visiting_url: current_visiting_url,
@@ -27,7 +27,9 @@ import {get_client_ip_address} from '../core/basics_info.js';
              server_time: server_time,
              client_cookie_id: client_cookie_id,
              client_ip_address: response
-           }
+           },
+           status_code: 200
+          }
 
            console.log(visitor_data);
            if (domain_name == currect_domain) {

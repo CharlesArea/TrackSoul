@@ -16,14 +16,14 @@ async function click_tracking(domain_name, enabled){
          client_cookie_id = Cookie.checkCookie(),
          click_time = General.millisToMinutesAndSeconds(performance.now()),
          data_type = 'visitor_behaviour',
+         data_type_code = 1,
          client_cookie_id = Cookie.checkCookie(),
          element_xpath = General.getXPathForElement(event.srcElement);
          
-         // Disable getting ip address for each clicking behavior
-         // client_ip_address = get_client_ip_address().then((response) =>{
-
-         page_data = {
+         page_data = {result: {
+           data_type_code:data_type_code,
            data_type: data_type,
+           client_cookie_id: client_cookie_id,
            current_visiting_url: current_visiting_url,
            client_position_x: client_position_x,
            client_position_y: client_position_y,
@@ -31,10 +31,10 @@ async function click_tracking(domain_name, enabled){
            page_position_y: page_position_y,
            client_action: client_action,
            element_xpath: element_xpath,
-           click_time: click_time,
-           client_cookie_id: client_cookie_id
-           // client_ip_address: response
-         }
+           click_time: click_time
+         },
+         status_code: 200
+        }
 
            var currect_domain = window.location.hostname;
            if (domain_name == currect_domain) {
@@ -45,8 +45,6 @@ async function click_tracking(domain_name, enabled){
              console.log(page_data)
              console.log('I cannot post data from another domain')
            }
-
-         // })
        });
      }};
 
