@@ -1,6 +1,7 @@
 'use strict';
 
 const sdk_name = 'TrackSoul';
+const data_endpoint$1 = 'https://0a08e46e402c.ngrok.io/users_data';
 const script_domain = document.getElementById(sdk_name).getAttribute("domain_name");
 const client_id = document.getElementById(sdk_name).getAttribute("client_id");
 const client_key = document.getElementById(sdk_name).getAttribute("client_key");
@@ -138,7 +139,7 @@ function checkCookie() {
  }
 
 //Getting the visitor information when accessing the site
- function visitor_information(domain_name) {
+ function visitor_information(data_endpoint, domain_name) {
    var visitor_data = {};
    var current_visiting_url = window.location.href,
        visitor_from = document.referrer,
@@ -168,7 +169,7 @@ function checkCookie() {
 
            console.log(visitor_data);
            if (domain_name == currect_domain) {
-             post_tracking_data(visitor_data);
+             post_tracking_data(data_endpoint);
              console.log('Data has been successfully logged');
            } else {
              console.log('I cannot post data from another domain');
@@ -177,7 +178,7 @@ function checkCookie() {
          });
        }
 
-function input_tracking$1(domain_name, enabled) {
+function input_tracking$1(data_endpoint, domain_name, enabled) {
   const input_box = document.querySelector('input');
 
   if (input_box != null) {
@@ -208,7 +209,7 @@ function input_tracking$1(domain_name, enabled) {
         if (domain_name == currect_domain) {
           console.log(input_data);
           console.log('Data has been successfully logged');
-          post_tracking_data(page_data);
+          post_tracking_data(data_endpoint, page_data);
         } else {
           console.log(input_data);
           console.log('I cannot post data from another domain');
@@ -221,7 +222,7 @@ function input_tracking$1(domain_name, enabled) {
 }
 
 // Track user click when Config.behaviour_tracking is enabled
-async function click_tracking(domain_name, enabled){
+async function click_tracking(data_endpoint, domain_name, enabled){
   if (enabled) {
    var page_data = {};
    document.addEventListener("click", function(event) {
@@ -258,7 +259,7 @@ async function click_tracking(domain_name, enabled){
            if (domain_name == currect_domain) {
              console.log(page_data);
              console.log('Data has been successfully logged');
-             post_tracking_data(page_data);
+             post_tracking_data(pdata_endpoint, age_data);
            } else {
              console.log(page_data);
              console.log('I cannot post data from another domain');
@@ -267,7 +268,7 @@ async function click_tracking(domain_name, enabled){
      }}
 
 // Track user click when Config.behaviour_tracking is enabled
-async function specific_tracking$1(domain_name, enabled, active_domain, xpath, value_for){
+async function specific_tracking$1(data_endpoint, domain_name, enabled, active_domain, xpath, value_for){
   if (enabled) {
    var specific_data = {};
    var xpath_element = getElementByXPath(xpath);
@@ -306,7 +307,7 @@ async function specific_tracking$1(domain_name, enabled, active_domain, xpath, v
             if (domain_name == currect_domain) {
                 console.log(specific_data);
                 console.log('Data has been successfully logged');
-                post_tracking_data(specific_data);
+                post_tracking_data(data_endpoint);
             } else {
                 console.log(specific_data);
                 console.log('I cannot post data from another domain');
@@ -319,9 +320,9 @@ async function specific_tracking$1(domain_name, enabled, active_domain, xpath, v
     }
 }}
 
-visitor_information(script_domain);
-input_tracking$1(script_domain, input_tracking);
-click_tracking(script_domain, behaviour_tracking);
+visitor_information(data_endpoint$1, script_domain);
+input_tracking$1(data_endpoint$1,script_domain, input_tracking);
+click_tracking(data_endpoint$1, script_domain, behaviour_tracking);
 
 //User can define Specific tracking point based on their needs
-specific_tracking$1(script_domain, specific_tracking, 'http://localhost:3000/index.html', '/html[1]/body[1]/h1[3]', 'Test Specifc path');
+specific_tracking$1(data_endpoint$1, script_domain, specific_tracking, 'http://localhost:3000/index.html', '/html[1]/body[1]/h1[3]', 'Test Specifc path');

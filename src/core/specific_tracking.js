@@ -3,7 +3,7 @@ import * as Cookie from '../lib/cookie_functions.js';
 import {get_client_ip_address} from '../core/basics_info.js';
 
 // Track user click when Config.behaviour_tracking is enabled
-async function specific_tracking(domain_name, enabled, active_domain, xpath, value_for){
+async function specific_tracking(data_endpoint, domain_name, enabled, active_domain, xpath, value_for){
   if (enabled) {
    var specific_data = {};
    var xpath_element = General.getElementByXPath(xpath);
@@ -42,7 +42,7 @@ async function specific_tracking(domain_name, enabled, active_domain, xpath, val
             if (domain_name == currect_domain) {
                 console.log(specific_data)
                 console.log('Data has been successfully logged')
-                General.post_tracking_data(specific_data)
+                General.post_tracking_data(data_endpoint, specific_data)
             } else {
                 console.log(specific_data)
                 console.log('I cannot post data from another domain')

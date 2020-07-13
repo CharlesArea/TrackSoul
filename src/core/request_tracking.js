@@ -3,7 +3,7 @@ import * as Cookie from '../lib/cookie_functions.js';
 import {get_client_ip_address} from '../core/basics_info.js';
 
  //Getting the visitor information when accessing the site
- function visitor_information(domain_name) {
+ function visitor_information(data_endpoint, domain_name) {
    var visitor_data = {};
    var current_visiting_url = window.location.href,
        visitor_from = document.referrer,
@@ -33,7 +33,7 @@ import {get_client_ip_address} from '../core/basics_info.js';
 
            console.log(visitor_data);
            if (domain_name == currect_domain) {
-             General.post_tracking_data(visitor_data);
+             General.post_tracking_data(data_endpoint, visitor_data);
              console.log('Data has been successfully logged');
            } else {
              console.log('I cannot post data from another domain');

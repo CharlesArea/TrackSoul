@@ -5,7 +5,7 @@ import {
 } from '../core/basics_info.js';
 
 
-function input_tracking(domain_name, enabled) {
+function input_tracking(data_endpoint, domain_name, enabled) {
   const input_box = document.querySelector('input');
 
   if (input_box != null) {
@@ -36,7 +36,7 @@ function input_tracking(domain_name, enabled) {
         if (domain_name == currect_domain) {
           console.log(input_data)
           console.log('Data has been successfully logged')
-          General.post_tracking_data(page_data)
+          General.post_tracking_data(data_endpoint, page_data)
         } else {
           console.log(input_data)
           console.log('I cannot post data from another domain')

@@ -3,7 +3,7 @@ import * as Cookie from '../lib/cookie_functions.js';
 import {get_client_ip_address} from '../core/basics_info.js';
 
 // Track user click when Config.behaviour_tracking is enabled
-async function click_tracking(domain_name, enabled){
+async function click_tracking(data_endpoint, domain_name, enabled){
   if (enabled) {
    var page_data = {};
    document.addEventListener("click", function(event) {
@@ -40,7 +40,7 @@ async function click_tracking(domain_name, enabled){
            if (domain_name == currect_domain) {
              console.log(page_data)
              console.log('Data has been successfully logged')
-             General.post_tracking_data(page_data)
+             General.post_tracking_data(pdata_endpoint, age_data)
            } else {
              console.log(page_data)
              console.log('I cannot post data from another domain')
