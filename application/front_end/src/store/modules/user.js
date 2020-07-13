@@ -1,4 +1,4 @@
-import { login, logout, getInfo } from '@/api/user'
+import { login, logout, getInfo, register } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
 
@@ -42,8 +42,37 @@ const actions = {
     return new Promise((resolve, reject) => {
       login({ username: username.trim(), password: password }).then(response => {
         const { data } = response
+
+        sessionStorage.setItem('username', username)
+        sessionStorage.setItem('token', data.token)
+        sessionStorage.setItem('avatar', data.avator)
+
         commit('SET_USERNAME', username)
         commit('SET_TOKEN', data.token)
+        commit('SET_AVATAR', data.avator)
+        setToken(data.token)
+        resolve()
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  },
+
+  // register
+  register({ commit }, userInfo) {
+    const { username, password } = userInfo
+    return new Promise((resolve, reject) => {
+      register({ username: username.trim(), password: password }).then(response => {
+        const { data } = response
+
+        sessionStorage.setItem('username', username)
+        sessionStorage.setItem('token', data.token)
+        sessionStorage.setItem('avatar', data.avator)
+
+        commit('SET_USERNAME', username)
+        commit('SET_TOKEN', data.token)
+        commit('SET_AVATAR', data.avator)
+
         // commit('SET_APPLIST', appList)
         setToken(data.token)
         resolve()
@@ -57,16 +86,22 @@ const actions = {
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
-        const { data, appList } = response
+        var { data, appList } = response
 
+        if (!appList) {
+          appList = []
+        }
         if (!data) {
           reject('Verification failed, please Login again.')
         }
 
-        const { name, avatar } = data
+        const { name } = data
 
+        sessionStorage.setItem('name', name)
+        sessionStorage.setItem('appList', JSON.stringify(appList))
+        console.log('getting info')
+        console.log(appList)
         commit('SET_NAME', name)
-        commit('SET_AVATAR', avatar)
         commit('SET_APPLIST', appList)
         resolve(data)
       }).catch(error => {

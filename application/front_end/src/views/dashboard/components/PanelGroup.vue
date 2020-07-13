@@ -1,7 +1,7 @@
 <template>
   <el-row :gutter="40" class="panel-group">
     <!--               Registed App                     -->
-    <el-col v-for="item in barItem" :key="item.meta.title" :xs="12" :sm="12" :lg="6" class="card-panel-col">
+    <el-col v-for="item in barItem" :key="item.meta.key" :xs="12" :sm="12" :lg="8" class="card-panel-col">
       <div class="card-panel" @click="clickFun(item)">
         <div class="card-panel-icon-wrapper icon-people">
           <svg-icon :icon-class="item.meta.icon" class-name="card-panel-icon" />
@@ -18,14 +18,14 @@
     </el-col>
 
     <!--                 Add new                        -->
-    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+    <el-col :xs="12" :sm="12" :lg="8" class="card-panel-col">
       <div class="card-panel" @click="addTask=true">
         <div class="card-panel-icon-wrapper icon-people">
           <i class="el-icon-circle-plus card-panel-icon" />
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-              Add Application
+            Add Application
           </div>
         </div>
       </div>
@@ -54,41 +54,7 @@ export default {
     return {
       numDisplay: {},
       addTask: false,
-      barItem: [{
-        path: '/appDetail?info=aaa',
-        name: 'appDetail3',
-        meta: { title: 'APP3', icon: 'example' },
-        children: [{
-          hidden: false,
-          path: '/appDetail?info=a1',
-          name: 'appDetail3',
-          meta: { title: '實時儀表板', icon: 'example' }
-        }, {
-          hidden: false,
-          path: '/appDetail?info=a2',
-          name: 'appDetail2',
-          meta: { title: '地區分佈', icon: 'example' }
-        }]
-      }, {
-        path: '/appDetail?info=ddd',
-        name: 'appDetail2',
-        meta: { title: 'APP2', icon: 'example' },
-        children: [{
-          hidden: false,
-          path: '/appDetail?info=d1',
-          name: 'appDetail3',
-          meta: { title: '實時儀表板', icon: 'example' }
-        }, {
-          hidden: false,
-          path: '/appDetail?info=d2',
-          name: 'appDetail2',
-          meta: { title: '地區分佈', icon: 'example' }
-        }]
-      }],
-      appIcon: {
-        web: 'https://cdn.icon-icons.com/icons2/1908/PNG/512/4552606-check-computer-result-website_121388.png',
-        app: 'https://cdn.iconscout.com/icon/free/png-512/whatsapp-156-734843.png'
-      },
+      barItem: [],
       appLIst: {}
     }
   },
@@ -108,8 +74,10 @@ export default {
     }
   },
   created() {
-    this.appList_to_pathList(this.$store.state.user.appList.apps)
-    this.appLIst = this.$store.state.user.appList.apps
+    this.appList_to_pathList(this.$store.state.user.appList)
+    this.appLIst = this.$store.state.user.appList
+    console.log(this.$store.state.user.appList)
+    console.log('Panel Group')
   },
   methods: {
     handleSetLineChartData(type) {
@@ -129,7 +97,6 @@ export default {
 
     appList_to_pathList(appList) {
       this.barItem = this.$store.state.appDetail.barItem
-      console.log(this.$store.state.appDetail.barItem)
     }
   }
 }
@@ -184,8 +151,9 @@ export default {
     .card-panel-description {
       float: right;
       font-weight: bold;
-      margin: 26px;
-      margin-left: 0px;
+      // margin: 26px;
+      // margin-left: 0px;
+      margin: 26px 26px 0px 0px;
 
       .card-panel-text {
         line-height: 18px;

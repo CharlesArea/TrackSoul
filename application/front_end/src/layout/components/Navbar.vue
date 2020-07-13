@@ -54,6 +54,7 @@ export default {
     },
     async logout() {
       await this.$store.dispatch('user/logout')
+      sessionStorage.clear()
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
   }

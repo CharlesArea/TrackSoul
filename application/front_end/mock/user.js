@@ -27,22 +27,26 @@ const appLists = {
   'admin-token': {
     apps: [
       {
-        type: 'web',
-        appId: '123456'
+        type: 'Website',
+        appId: '123456',
+        appName: 'topunions'
       }, {
-        type: 'web',
-        appId: '222222'
+        type: 'Website',
+        appId: '222222',
+        appName: 'CharlesWeb'
       }
     ]
   },
   'editor-token': {
     apps: [
       {
-        type: 'app',
-        appId: '333333'
+        type: 'Website',
+        appId: '333333',
+        appName: 'topunions'
       }, {
-        type: 'app',
-        appId: '444444'
+        type: 'Wechat Mini-Program',
+        appId: '444444',
+        appName: 'wechatApps'
       }
     ]
   }
@@ -51,13 +55,13 @@ const appLists = {
 export default [
   // user login
   {
-    url: '/vue-admin-template/user/login',
+    url: '/user/login',
     type: 'post',
     response: config => {
       const { username } = config.body
-      const token = tokens[username]
-      // const appList = appLists[username]
-      // mock error
+      const token = tokens[username].token
+      const avatar = users[token.token].avatar
+
       if (!token) {
         return {
           status_code: 60204,
@@ -67,20 +71,19 @@ export default [
 
       return {
         status_code: 200,
-        data: token,
-        // appList: appList
+        data: {token: token, avatar: avatar},
       }
     }
   },
 
   // get user info
   {
-    url: '/vue-admin-template/user/info\.*',
+    url: '/user/info\.*',
     type: 'get',
     response: config => {
       const { token } = config.query
       const info = users[token]
-      const appList = appLists[token]
+      const appList = appLists[token].apps
       // mock error
       if (!info) {
         return {
@@ -97,12 +100,12 @@ export default [
     }
   },
   {
-    url: '/vue-admin-template/user/appList',
+    url: '/user/appList',
     type: 'get',
     response: config => {
       const { username } = config.body
       const token = tokens[username]
-      const appList = appLists[username]
+      const appList = appLists[username].apps
 
       // mock error
       if (!info) {
@@ -120,7 +123,7 @@ export default [
   },
   // user logout
   {
-    url: '/vue-admin-template/user/logout',
+    url: '/user/logout',
     type: 'post',
     response: _ => {
       return {

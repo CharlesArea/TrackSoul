@@ -42,13 +42,16 @@
             <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
           </span>
         </el-form-item>
-
-        <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登入</el-button>
-
+        <el-row type="flex" class="btnClass" style="margin-bottom:30px;" :gutter="10" justify="space-between">
+          <el-button :loading="LoginLoading" type="primary" @click.native.prevent="handleLogin">登入</el-button>
+          <el-button :loading="Registerloading" type="primary" @click.native.prevent="handleRegist">註冊</el-button>
+        </el-row>
+        <!--
         <div class="tips">
           <span style="margin-right:20px;">username: admin</span>
           <span> password: any</span>
         </div>
+        -->
 
       </el-form>
     </div>
@@ -57,7 +60,6 @@
 
 <script>
 import { validUsername } from '@/utils/validate'
-import { login } from '@/api/user'
 
 export default {
   name: 'Login',
@@ -85,7 +87,8 @@ export default {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
         password: [{ required: true, trigger: 'blur', validator: validatePassword }]
       },
-      loading: false,
+      LoginLoading: false,
+      Registerloading: false,
       passwordType: 'password',
       redirect: undefined
     }
@@ -112,16 +115,33 @@ export default {
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          console.log(this.$refs.loginForm.model)
-          login(this.$refs.loginForm.model).then(res => {
-            console.log(res)
-          })
-          this.loading = true
+          // console.log(this.$refs.loginForm.model)
+          // login(this.$refs.loginForm.model).then(res => {
+          //   console.log(res)
+          // })
+          this.LoginLoading = true
           this.$store.dispatch('user/login', this.loginForm).then(() => {
             this.$router.push({ path: this.redirect || '/' })
-            this.loading = false
+            this.LoginLoading = false
           }).catch(() => {
-            this.loading = false
+            this.LoginLoading = false
+          })
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
+    },
+    handleRegist() {
+      this.$refs.loginForm.validate(valid => {
+        if (valid) {
+          console.log(this.$refs.loginForm.model)
+          this.LoginLoading = true
+          this.$store.dispatch('user/register', this.loginForm).then(() => {
+            this.$router.push({ path: this.redirect || '/' })
+            this.LoginLoading = false
+          }).catch(() => {
+            this.LoginLoading = false
           })
         } else {
           console.log('error submit!!')

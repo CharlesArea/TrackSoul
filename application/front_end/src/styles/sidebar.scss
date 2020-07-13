@@ -101,9 +101,16 @@
       color: $subMenuActiveText !important;
     }
 
-    li.el-menu-item.is-active {
-    // #app .sidebar-container .el-submenu .el-menu-item .is-active{
-      color: $menuBg !important;
+    // li.el-menu-item.is-active {
+    // // #app .sidebar-container .el-submenu .el-menu-item .is-active{
+    //   color: $menuBg !important;
+    // }
+
+    li.el-menu-item{
+      padding-left: 10px !important;
+      is-active {
+        color: $menuBg !important;
+      }
     }
 
     li.el-menu-item.is-active.submenu-title-noDropdown{

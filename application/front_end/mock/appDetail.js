@@ -2,10 +2,10 @@ const appLists = {
   admin: {
     apps: [
       {
-        type: 'web',
+        type: 'Website',
         appId: '123456'
       }, {
-        type: 'web',
+        type: 'Website',
         appId: '222222'
       }
     ]
@@ -13,10 +13,10 @@ const appLists = {
   editor: {
     apps: [
       {
-        type: 'web',
+        type: 'Website',
         appId: '333333'
       }, {
-        type: 'web',
+        type: 'Wechat Mini-Program',
         appId: '444444'
       }
     ]
