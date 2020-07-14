@@ -3,10 +3,10 @@ const appLists = {
     apps: [
       {
         type: 'Website',
-        appId: '123456'
+        appToken: '123456'
       }, {
         type: 'Website',
-        appId: '222222'
+        appToken: '222222'
       }
     ]
   },
@@ -14,10 +14,10 @@ const appLists = {
     apps: [
       {
         type: 'Website',
-        appId: '333333'
+        appToken: '333333'
       }, {
         type: 'Wechat Mini-Program',
-        appId: '444444'
+        appToken: '444444'
       }
     ]
   }

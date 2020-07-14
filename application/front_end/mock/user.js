@@ -28,11 +28,11 @@ const appLists = {
     apps: [
       {
         type: 'Website',
-        appId: '123456',
+        appToken: '123456',
         appName: 'topunions'
       }, {
         type: 'Website',
-        appId: '222222',
+        appToken: '222222',
         appName: 'CharlesWeb'
       }
     ]
@@ -41,11 +41,11 @@ const appLists = {
     apps: [
       {
         type: 'Website',
-        appId: '333333',
+        appToken: '333333',
         appName: 'topunions'
       }, {
         type: 'Wechat Mini-Program',
-        appId: '444444',
+        appToken: '444444',
         appName: 'wechatApps'
       }
     ]

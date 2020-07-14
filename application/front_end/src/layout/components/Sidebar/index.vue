@@ -78,8 +78,8 @@ export default {
       this.$store.commit('user/SET_NAME', sessionStorage.getItem('username'))
       this.$store.commit('user/SET_AVATAR', sessionStorage.getItem('avatar'))
       var temp_appList = sessionStorage.getItem('appList')
-      console.log('Here is the appList')
-      console.log(JSON.parse(temp_appList))
+      // console.log('Here is the appList')
+      // console.log(JSON.parse(temp_appList))
       this.$store.commit('user/SET_APPLIST', JSON.parse(temp_appList))
     }
 
@@ -102,18 +102,18 @@ export default {
       if (appList) {
         appList.forEach((item, index) => {
           var path_obj = {
-            path: '/' + item.appId,
-            name: item.appId,
+            path: '/' + item.appToken,
+            name: item.appToken,
             // meta: { title: item.type + index.toString(), icon: this.appIcon[item.type] },
-            meta: { title: item.appName, key: item.appId, icon: this.appIcon[item.type], des: item.des },
+            meta: { title: item.appName, key: item.appKey, token: item.appToken, icon: this.appIcon[item.type], des: item.des },
             children: [{
               hidden: false,
-              path: '/appDetail?info=' + item.appId,
+              path: '/appDetail?token=' + item.appToken,
               name: 'Real_Time_Data_Dashboard',
               meta: { title: 'Real-Time Data', icon: 'example' }
             }, {
               hidden: false,
-              path: '/LocData?info=' + item.appId,
+              path: '/LocData?token=' + item.appToken,
               name: 'Visitor_Map',
               meta: { title: 'Visitor Map', icon: 'example' }
             }]

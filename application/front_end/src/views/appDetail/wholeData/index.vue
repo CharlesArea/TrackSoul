@@ -2,7 +2,7 @@
   <div class="dashboard-container">
     <div class="dashboard-editor-container">
 
-      <panel-group @handleSetLineChartData="handleSetLineChartData" />
+      <panel-group ref="panelGroup" @handleSetLineChartData="handleSetLineChartData" />
 
       <el-row :gutter="32">
         <el-col :xs="24" :sm="24" :lg="8">
@@ -30,6 +30,7 @@ import PanelGroup from './components/PanelGroup'
 import RaddarChart from './components/RaddarChart'
 import PieChart from './components/PieChart'
 import BarChart from './components/BarChart'
+import { getUserCount } from '@/api/appDetail'
 
 export default {
   name: 'DashboardAdmin',
@@ -38,6 +39,38 @@ export default {
     RaddarChart,
     PieChart,
     BarChart
+  },
+  data() {
+    return {
+      token: ''
+    }
+  },
+  created() {
+    this.token = this.$route.query.token
+    this.LoadData()
+  },
+  methods: {
+    LoadData() {
+      getUserCount({ token: this.token }).then(res => {
+        console.log(res)
+        var results = res.data
+        ///////////////// Panel Group /////////////////
+        // get clickNum
+        this.$refs.panelGroup.totalVisitsNum = results.length
+        // get client Num and Current User
+        var checkClient = () => {
+          var clientCookie = {}
+          results.forEach(ele => {
+            clientCookie[ele.result.client_cookie_id] = ''
+            console.log(ele.result)
+          })
+          return new Promise(resolve => resolve(clientCookie))
+        }
+        checkClient().then((data) => {
+          this.$refs.panelGroup.totalClientsNum = (Object.keys(data).length)
+        })
+      })
+    }
   }
 }
 </script>

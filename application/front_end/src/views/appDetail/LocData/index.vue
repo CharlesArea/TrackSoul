@@ -39,8 +39,12 @@ export default {
   },
   data() {
     return {
-      lineChartData: lineChartData.newVisitis
+      lineChartData: lineChartData.newVisitis,
+      token: ''
     }
+  },
+  created() {
+    this.token = this.$route.query
   },
   methods: {
     handleSetLineChartData(type) {

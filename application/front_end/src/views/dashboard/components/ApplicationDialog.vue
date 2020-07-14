@@ -88,7 +88,7 @@
 
 <script>
 // import { updateAppDetail } from '@/api/appDetail'
-
+import makeRandomStr from '@/utils/util'
 export default {
   props: {
     value: {
@@ -166,9 +166,10 @@ export default {
     addApp() {
       if (this.appName && this.appDomain) {
         // add value
-        var appId = this.makeid(7)
+        var appToken = makeRandomStr(10)
+        var appKey = makeRandomStr(20)
         var appType = this.appList[this.selectedApp].appType
-        this.$store.dispatch('user/updateApp', { appId: appId, type: appType, appName: this.appName, des: this.appDomain }).then(res => {
+        this.$store.dispatch('user/updateApp', { appToken: appToken, appKey: appKey, type: appType, appName: this.appName, des: this.appDomain }).then(res => {
           this.appName = ''
           this.appDescription = ''
           this.dialog.visible = false
@@ -177,36 +178,9 @@ export default {
           console.log(error)
           this.$message.error('something wrong')
         })
-
-        // var store_appList = this.$store.state.user.appList
-
-        // if (!store_appList) { store_appList = [] }
-
-        // store_appList.push({ appId: appId, type: appType, appName: this.appName })
-        // sessionStorage.setItem('appList', JSON.stringify(store_appList))
-
-        // var token = this.$store.state.user.token
-        // var post_appList = { token: token, appId: appId, type: appType, appName: this.appName }
-        // updateAppDetail(post_appList).then(res => {
-        //   this.appName = ''
-        //   this.dialog.visible = false
-        //   this.closeDialog()
-        // }).catch( err => {
-        //   this.$message.error('something wrong')
-        // })
       } else {
         this.$message.error('Please name your application')
       }
-    },
-
-    makeid(length) {
-      var result = ''
-      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-      var charactersLength = characters.length
-      for (var i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength))
-      }
-      return result
     }
   }
 }

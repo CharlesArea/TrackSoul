@@ -9,3 +9,11 @@ export function updateAppDetail(data) {
     data
   })
 }
+
+export function getUserCount(data) {
+  return request({
+    url: '/appDetail/getUserCount',
+    method: 'post',
+    data
+  })
+}
