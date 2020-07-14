@@ -34,7 +34,7 @@ module.exports = {
     },
     proxy: {
       '/dev-api': {
-        target: 'http://localhost:3000/', // 测试服务器
+        target: 'http://localhost:5000/', // 测试服务器
         ws: true,
         changeOrigin: true,
         pathRewrite: {
