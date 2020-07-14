@@ -54,7 +54,7 @@ export default {
       getUserCount({ token: this.token }).then(res => {
         console.log(res)
         var results = res.data
-        ///////////////// Panel Group /////////////////
+        // /////////////// Panel Group /////////////////
         // get clickNum
         this.$refs.panelGroup.totalVisitsNum = results.length
         // get client Num and Current User
