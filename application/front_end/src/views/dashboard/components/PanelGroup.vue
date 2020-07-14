@@ -11,7 +11,7 @@
             {{ item.meta.title }}
           </div>
           <div class="carrd-detail-text">
-            www.topunions.coom
+            {{ item.meta.des }}
           </div>
         </div>
       </div>

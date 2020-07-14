@@ -1,4 +1,5 @@
 import { login, logout, getInfo, register } from '@/api/user'
+import { updateAppDetail } from '@/api/appDetail'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
 
@@ -99,13 +100,31 @@ const actions = {
 
         sessionStorage.setItem('name', name)
         sessionStorage.setItem('appList', JSON.stringify(appList))
-        console.log('getting info')
-        console.log(appList)
         commit('SET_NAME', name)
         commit('SET_APPLIST', appList)
         resolve(data)
       }).catch(error => {
         reject(error)
+      })
+    })
+  },
+
+  // update app
+  updateApp({ commit, state }, appItem) {
+    return new Promise((resolve, reject) => {
+      var store_appList = state.appList
+
+      if (!store_appList) { store_appList = [] }
+
+      store_appList.push(appItem)
+      sessionStorage.setItem('appList', JSON.stringify(store_appList))
+      var post_appList = { token: state.token, ...appItem }
+
+      updateAppDetail(post_appList).then(res => {
+        resolve('add OK')
+      }).catch(error => {
+        console.log(error)
+        reject('something wrong')
       })
     })
   },

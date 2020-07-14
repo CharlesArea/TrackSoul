@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import { updateAppDetail } from '@/api/appDetail'
+// import { updateAppDetail } from '@/api/appDetail'
 
 export default {
   props: {
@@ -151,8 +151,8 @@ export default {
           return
         }
       } else if (this.curStep === 2) {
-        if (!this.appName) {
-          this.$message.error('Please name your application')
+        if (!this.appName && !this.appDomain) {
+          this.$message.error('Please name your application and domain')
           return
         }
       }
@@ -164,28 +164,38 @@ export default {
     },
 
     addApp() {
-      if (this.appName) {
-        this.dialog.visible = false
-        this.closeDialog()
-
+      if (this.appName && this.appDomain) {
         // add value
         var appId = this.makeid(7)
         var appType = this.appList[this.selectedApp].appType
+        this.$store.dispatch('user/updateApp', { appId: appId, type: appType, appName: this.appName, des: this.appDomain }).then(res => {
+          this.appName = ''
+          this.appDescription = ''
+          this.dialog.visible = false
+          this.closeDialog()
+        }).catch(error => {
+          console.log(error)
+          this.$message.error('something wrong')
+        })
 
-        var store_appList = this.$store.state.user.appList
+        // var store_appList = this.$store.state.user.appList
 
-        if (!store_appList) { store_appList = [] }
+        // if (!store_appList) { store_appList = [] }
 
-        store_appList.push({ appId: appId, type: appType, appName: this.appName })
-        sessionStorage.setItem('appList', JSON.stringify(store_appList))
+        // store_appList.push({ appId: appId, type: appType, appName: this.appName })
+        // sessionStorage.setItem('appList', JSON.stringify(store_appList))
 
-        var token = this.$store.state.user.token
-        var post_appList = { token: token, appList: JSON.stringify(store_appList) }
-
-        updateAppDetail(post_appList)
-        this.appName = ''
+        // var token = this.$store.state.user.token
+        // var post_appList = { token: token, appId: appId, type: appType, appName: this.appName }
+        // updateAppDetail(post_appList).then(res => {
+        //   this.appName = ''
+        //   this.dialog.visible = false
+        //   this.closeDialog()
+        // }).catch( err => {
+        //   this.$message.error('something wrong')
+        // })
       } else {
-        this.$message.error('請輸入 名稱')
+        this.$message.error('Please name your application')
       }
     },
 

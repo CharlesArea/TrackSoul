@@ -105,7 +105,7 @@ export default {
             path: '/' + item.appId,
             name: item.appId,
             // meta: { title: item.type + index.toString(), icon: this.appIcon[item.type] },
-            meta: { title: item.appName, key: item.appId, icon: this.appIcon[item.type] },
+            meta: { title: item.appName, key: item.appId, icon: this.appIcon[item.type], des: item.des },
             children: [{
               hidden: false,
               path: '/appDetail?info=' + item.appId,

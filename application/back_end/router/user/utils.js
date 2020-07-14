@@ -1,6 +1,7 @@
 "use strict";
 const MongoClient = require('mongodb').MongoClient;
 const {dburl, connection_options} = require('../../config/config.js');
+const {makeRandomStr} = require('../utils/randomStr')
 
 module.exports = {
     'loginFun' : loginFun,
@@ -54,21 +55,22 @@ function registFun (username, password, res) {
             var dbo = client.db("mydb");
             // insert user and password
             const default_icon = 'https://www.clipartmax.com/png/middle/258-2582267_circled-user-male-skin-type-1-2-icon-male-user-icon.png'
-            var myobj = {username: username, password: password, avator: default_icon}
+            var user_token = makeRandomStr(10)
+            var myobj = {username: username, password: password, avator: default_icon, token: user_token}
             dbo.collection("user").insertOne(myobj, function(err, result) {
                 if (err) {res.send({'message': err, 'status_code': 400}); return ;}
                 console.log(result.value)
-                // client.close();
+                client.close();
+                res.send({'message': 'Welcome', 'status_code': 200, data: {token: username, avator: default_icon}});
             });
             // insert a empty appList
-            var appListobj = {appList: [], token: username}
-            dbo.collection("appList").insertOne(appListobj, function(err, result) {
-                if (err) {res.send({'message': err, 'status_code': 400}); return ;}
-                console.log("next to the result")
-                console.log(result.value)
-                client.close();
-            });
-            res.send({'message': 'Welcome', 'status_code': 200, data: {token: username, avator: default_icon}});
+            // var appListobj = {appList: [], token: username}
+            // dbo.collection("appList").insertOne(appListobj, function(err, result) {
+            //     if (err) {res.send({'message': err, 'status_code': 400}); return ;}
+            //     console.log("next to the result")
+            //     console.log(result.value)
+            //     client.close();
+            // });
             return ;
         })
     }).catch( reject => {
@@ -77,15 +79,27 @@ function registFun (username, password, res) {
 }
 
 function getInfoFun (token, res) {
+    // MongoClient.connect(dburl, connection_options, function(err, client){
+    //     if (err) {res.send({'message': err, 'status_code': 400});}
+    //     var dbo = client.db("mydb");
+    //     dbo.collection("appList").findOne({token: token}, function(err, result) {
+    //         if (err) {res.send({'message': 'mongo error', 'status_code': 400})}
+    //         res.send({'message': 'Welcome', 'status_code': 200, data: {name: token}, appList: result.appList});
+    //         client.close();
+    //     });
+    // })
+    console.log(token)
     MongoClient.connect(dburl, connection_options, function(err, client){
         if (err) {res.send({'message': err, 'status_code': 400});}
         var dbo = client.db("mydb");
-        dbo.collection("appList").findOne({token: token}, function(err, result) {
+        dbo.collection("appList").find({token: token}).toArray(function(err, result) {
             if (err) {res.send({'message': 'mongo error', 'status_code': 400})}
-            res.send({'message': 'Welcome', 'status_code': 200, data: {name: token}, appList: result.appList});
+            console.log(result);
             client.close();
+            res.send({'message': 'appList', 'status_code': 200, data: {name: token}, appList: result});
         });
     })
+
 }
 
 

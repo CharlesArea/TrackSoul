@@ -6,14 +6,15 @@ module.exports = {
     'updateFun' : updateFun,
 }
 
-function updateFun (appList, token, res) {
+function updateFun (appObj, res) {
+
     MongoClient.connect(dburl, connection_options, function(err, client){
         if (err) {res.send({'message': err, 'status_code': 400});}
         var dbo = client.db("mydb");
-        dbo.collection('appList').findOneAndUpdate({ "token" : token }, { $set: { "appList" : appList} }, function(error, result){
+        dbo.collection("appList").insertOne(appObj, function(err, result) {
             if (err) {res.send({'message': 'mongo error', 'status_code': 400})}
             client.close();
-            res.send({'message': 'Welcome', 'status_code': 200, data: {token: result.username, avator:result.avator}});
+            res.send({'message': 'Success', 'status_code': 200});
         });
     })
 }
