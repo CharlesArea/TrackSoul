@@ -1,6 +1,7 @@
 import * as General from '../lib/general_functions.js';
 import * as Cookie from '../lib/cookie_functions.js';
 import {get_client_ip_address} from '../core/basics_info.js';
+import * as Config from '../tracksoul.config.js'
 
 // Track user click when Config.behaviour_tracking is enabled
 async function specific_tracking(domain_name, enabled, active_domain, xpath, value_for){
@@ -40,7 +41,8 @@ async function specific_tracking(domain_name, enabled, active_domain, xpath, val
             if (domain_name == currect_domain) {
                 console.log(specific_data)
                 console.log('Data has been successfully logged')
-                General.post_tracking_data(specific_data)
+                // TODO
+                General.post_tracking_data(Config.data_endpoint, specific_data)
             } else {
                 console.log(specific_data)
                 console.log('I cannot post data from another domain')

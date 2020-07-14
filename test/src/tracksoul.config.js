@@ -1,5 +1,6 @@
 const sdk_name = 'TrackSoul'
-const data_endpoint = 'https://0a08e46e402c.ngrok.io/users_data'
+// const data_endpoint = 'https://0a08e46e402c.ngrok.io/users_data'
+const data_endpoint = 'http://localhost:5000/trackingPost/'
 const script_domain = document.getElementById(sdk_name).getAttribute("domain_name");
 const client_id = document.getElementById(sdk_name).getAttribute("client_id");
 const client_key = document.getElementById(sdk_name).getAttribute("client_key");

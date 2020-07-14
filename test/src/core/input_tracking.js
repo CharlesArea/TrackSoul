@@ -1,8 +1,7 @@
 import * as General from '../lib/general_functions.js';
 import * as Cookie from '../lib/cookie_functions.js';
-import {
-  get_client_ip_address
-} from '../core/basics_info.js';
+import { get_client_ip_address } from '../core/basics_info.js';
+import * as Config from '../tracksoul.config.js'
 
 
 function input_tracking(domain_name, enabled) {
@@ -34,7 +33,8 @@ function input_tracking(domain_name, enabled) {
         if (domain_name == currect_domain) {
           console.log(input_data)
           console.log('Data has been successfully logged')
-          General.post_tracking_data(page_data)
+          // TODO
+          General.post_tracking_data(Config.data_endpoint, page_data)
         } else {
           console.log(input_data)
           console.log('I cannot post data from another domain')

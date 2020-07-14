@@ -43,12 +43,17 @@ function make_tracking_id(length = 10) {
     return result;
   }
 
+  // temp get client information
+var body = document.getElementById('TrackSoul');
+var client_key = body.getAttribute('client_key');
+var client_id = body.getAttribute('client_id');
   //Sending data to api endpoint
-function post_tracking_data(json_data) {
+function post_tracking_data(data_endpoint, json_data) {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", data_endpoint);
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    xhr.send(JSON.stringify(json_data));
+    // xhr.send(JSON.stringify(json_data));
+    xhr.send(JSON.stringify({client_key: client_key, client_id: client_id, ...json_data}));
   }
 
   //ms to readable time
