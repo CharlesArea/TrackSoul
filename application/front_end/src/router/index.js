@@ -58,6 +58,17 @@ export const constantRoutes = [
     }]
   },
 
+  {
+    path: '/heatmapPage',
+    component: Layout,
+    children: [{
+      path: '/',
+      name: 'heatmapPage',
+      component: () => import('@/views/appDetail/heatmapPage/index'),
+      meta: { title: 'heatmapPage', icon: 'dashboard' }
+    }]
+  },
+
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]

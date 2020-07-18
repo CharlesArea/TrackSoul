@@ -17,3 +17,11 @@ export function getUserCount(data) {
     data
   })
 }
+
+export function getTrackRequest(data) {
+  return request({
+    url: '/appDetail/getTrackRequest',
+    method: 'post',
+    data
+  })
+}

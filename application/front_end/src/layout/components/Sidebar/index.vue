@@ -116,6 +116,11 @@ export default {
               path: '/LocData?token=' + item.appToken,
               name: 'Visitor_Map',
               meta: { title: 'Visitor Map', icon: 'example' }
+            }, {
+              hidden: false,
+              path: '/heatmapPage?token=' + item.appToken,
+              name: 'HeatMap_Page',
+              meta: { title: 'HeatMap Page', icon: 'example' }
             }]
           }
           pathList.push(path_obj)
