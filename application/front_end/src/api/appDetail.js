@@ -25,3 +25,11 @@ export function getTrackRequest(data) {
     data
   })
 }
+
+export function getClickEventFiltDate(data) {
+  return request({
+    url: '/appDetail/getClickEventFiltDate',
+    method: 'post',
+    data
+  })
+}

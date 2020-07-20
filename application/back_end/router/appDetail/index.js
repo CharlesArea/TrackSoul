@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require("path");
-const {updateFun, userCountFun, getTrackRequest} = require("./utils")
+const {updateFun, userCountFun, getTrackRequest, getClickEventFiltDate} = require("./utils")
 
 
 router.use('/updateAppList', (req, res) => {
@@ -19,4 +19,8 @@ router.post('/getTrackRequest', (req, res) => {
     getTrackRequest(req.body.token, res)
 })
 
+router.post('/getClickEventFiltDate', (req, res) => {
+    var {token, startDate, endDate} = req.body
+    getClickEventFiltDate(token, startDate, endDate, res)
+})
 module.exports = router;

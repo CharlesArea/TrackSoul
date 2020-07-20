@@ -21,6 +21,12 @@
         sortable
       >
       </el-table-column>
+      <el-table-column
+        prop="visitorNum"
+        label="訪客人數"
+        sortable
+      >
+      </el-table-column>
     </el-table>
 
   </div>

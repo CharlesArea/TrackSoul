@@ -2,13 +2,6 @@
   <div class="dashboard-container">
     <div class="dashboard-editor-container">
       <el-row>
-        <!--
-        <el-switch
-          v-model="heatmapSwitch"
-          active-text="On"
-          inactive-text="Off"
-        >
-        -->
         <el-autocomplete
           class="inline-input"
           v-model="searchWebstie"
@@ -16,10 +9,9 @@
           placeholder="web"
           @select="changeInput"
         />
-        </el-switch>
       </el-row>
     </div>
-    <div class="dashboard-editor-container iframeContainer" id="heatmap" ref="iframeContainer" :style="{'height': iframeHeight+'px', width: iframeWidth+'px', overflow: 'auto'}" >
+    <div class="dashboard-editor-container iframeContainer" id="heatmap" ref="iframeContainer" :style="{'height': 1200+'px', width: iframeWidth+'px', overflow: 'auto'}" >
       <iframe ref="iframeDisplayer" :src="checkWebsite" title="localhost" :style="{height: 1200+'px', width: iframeWidth+'px'}" />
     </div>
 
@@ -28,12 +20,13 @@
 
 <script>
 import Heatmap from 'heatmap.js'
-import { getTrackRequest } from '@/api/appDetail'
+// import { getTrackRequest } from '@/api/appDetail'
 
 export default {
-  name: 'showPage',
+  name: 'ShowPage',
   props: {
-    websiteList: Array
+    websiteList: Array,
+    heatmapInfo: Array
   },
   data() {
     return {
@@ -53,38 +46,6 @@ export default {
     this.iframeWidth = (window.innerWidth) * 0.8
   },
   mounted() {
-    var heatmapInstance = Heatmap.create({
-      // only container is required, the rest will be defaults
-      container: this.$refs.iframeContainer
-    })
-    // now generate some random data
-    var points = []
-    var max = 0
-    var width = this.iframeWidth
-    var height = 1200
-    var len = 100
-
-    while (len--) {
-      var val = Math.floor(Math.random() * 100)
-      // now also with custom radius
-      var radius = Math.floor(Math.random() * 70)
-
-      max = Math.max(max, val)
-      var point = {
-        x: Math.floor(Math.random() * width),
-        y: Math.floor(Math.random() * height),
-        value: val,
-        // radius configuration on point basis
-        radius: radius
-      }
-      points.push(point)
-    }
-    // heatmap data format
-    var data = {
-      max: max,
-      data: points
-    }
-    heatmapInstance.setData(data)
     this.iframeDisplayer = this.$refs.iframeDisplayer
     // console.log(this.$refs.iframeDisplayer.contentWindow)
     // console.log(this.$refs.iframeDisplayer.contentWindow.document)
@@ -98,13 +59,13 @@ export default {
     if (iframe.attachEvent) {
       iframe.attachEvent('onload', function() {
         // iframe加载完毕以后执行操作
-        console.log('iframe已加载完毕')
+        console.log('iframe loaded')
         // console.log(this.$refs.iframeDisplayer.contentWindow.document.body.scrollHeight)
       })
     } else {
       iframe.onload = () => {
         // iframe加载完毕以后执行操作
-        console.log('iframe已加载完毕')
+        // console.log('iframe已加载完毕')
         // console.log(iframe.contentWindow.document.body.scrollHeight)
         console.log(this.$refs.iframeDisplayer)
       }
@@ -116,6 +77,10 @@ export default {
       var heatmap_canvas = (document.querySelector('.heatmap-canvas'))
       console.log(heatmap_canvas.style)
       heatmap_canvas.style.display = this.heatmapSwitch ? 'inline-block' : 'none'
+    },
+
+    heatmapInfo: function() {
+      this.reGenerateCanvas()
     }
   },
   methods: {
@@ -149,8 +114,36 @@ export default {
     changeInput() {
       console.log(this.searchWebstie)
       this.checkWebsite = this.searchWebstie
-    }
+      this.$emit('changeHeatmapInfo', this.searchWebstie)
+    },
 
+    reGenerateCanvas() {
+      var heatmapCanvas = document.querySelector('.heatmap-canvas');
+      if (heatmapCanvas) {
+        this.$refs.iframeContainer.removeChild(heatmapCanvas);
+      }
+      var heatmapInstance = Heatmap.create({
+        // only container is required, the rest will be defaults
+        container: this.$refs.iframeContainer
+      })
+      var points = []
+      this.heatmapInfo.forEach( ele => {
+        // console.log(ele.page_position_x, ele.page_position_y)
+        var point = {
+          x: ele.page_position_x,
+          y: ele.page_position_y,
+          value: 3,
+          // radius configuration on point basis
+          radius: 20
+        }
+        points.push(point)
+      })
+      var data = {
+        max: 3,
+        data: points
+      }
+      heatmapInstance.setData(data)
+    }
   }
 }
 </script>

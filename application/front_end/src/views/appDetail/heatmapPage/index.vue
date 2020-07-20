@@ -1,10 +1,27 @@
 <template>
   <div class="dashboard-container">
+
     <el-menu :default-active="activateItem" class="el-menu-demo" mode="horizontal" @select="handleSelect">
       <el-menu-item index="1">所有頁面</el-menu-item>
       <el-menu-item index="2">頁面熱力圖</el-menu-item>
     </el-menu>
 
+    <!--                  Button Filter                       -->
+    <div class="" v-show="activateItem === '1'" style="float:right; margin: 10px 10px;">
+      <el-date-picker
+        v-model="dateRange"
+        type="daterange"
+        align="right"
+        range-separator="至"
+        start-placeholder="開始日期"
+        end-placeholder="结束日期"
+        value-format="yyyy-MM-dd"
+        :picker-options="pickerOptions"
+      />
+      <el-button type="success" plain @click="filterByDate">Search</el-button>
+    </div>
+
+    <!--                    Show Panel                        -->
     <div v-show="activateItem === '1'">
       <keep-alive>
         <page-table ref="websiteTable" :websiteValueList="websiteValueList" v-on:changeToShow="changeToShow"/>
@@ -13,7 +30,7 @@
 
     <div v-show="activateItem === '2'">
       <keep-alive>
-        <show-page ref="heatmapShowPage" :websiteList="websiteList"/>
+        <show-page ref="heatmapShowPage" :websiteList="websiteList" :heatmapInfo="heatmapInfo" v-on:changeHeatmapInfo="changeHeatmapInfo"/>
       </keep-alive>
     </div>
 
@@ -22,7 +39,7 @@
 
 <script>
 // import { getTrackRequest } from '@/api/appDetail'
-import { getUserCount } from '@/api/appDetail'
+import { getUserCount, getClickEventFiltDate } from '@/api/appDetail'
 
 import showPage from './showPage'
 import pageTable from './table'
@@ -39,41 +56,74 @@ export default {
       searchWebstie: '',
       websiteValueList: [],
       checkWebsite: '',
-      activateItem: '1'
+      activateItem: '1',
+      resultObject: {},
+      heatmapInfo: [],
+      dateRange: '',
+      pickerOptions: {
+        shortcuts: [{
+          text: '最近一天',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 1)
+            picker.$emit('pick', [start, end])
+          }
+        }, {
+          text: '最近一週',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+            picker.$emit('pick', [start, end])
+          }
+        }, {
+          text: '最近一月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+            picker.$emit('pick', [start, end])
+          }
+        }]
+      }
     }
   },
   created() {
     this.token = this.$route.query.token
-    getUserCount({ token: this.token }).then(res => {
+    // getUserCount({ token: this.token }).then(res => {
+    //   var results = res.data
+    //   // Table result
+    //   this.getUrlList(results).then((data) => {
+    //     console.log(data)
+    //     this.websiteValueList = []
+    //     this.websiteList = Object.keys(data)
+    //     Object.keys(data).forEach(key => {
+    //       this.websiteValueList.push({ value: key, clickNum: data[key].length })
+    //     })
+    //   })
+    // })
+
+    var endDate = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
+    var start = new Date()
+    start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+    var startDate = start.toISOString().replace(/T/, ' ').replace(/\..+/, '')
+
+    getClickEventFiltDate({ token: this.token, startDate: startDate, endDate: endDate }).then( res => {
       var results = res.data
-      console.log(this.token, res)
-      var checkClient = (results) => {
-        var urlList = {}
-        results.forEach(ele => {
-        //   urlList[ele.result.current_visiting_url] = ''
-          if (ele.result.current_visiting_url) {
-            if (!urlList[ele.result.current_visiting_url]) {
-              urlList[ele.result.current_visiting_url] = []
-            }
-            urlList[ele.result.current_visiting_url].push(ele.result)
-          }
-          if (ele.result.visitor_from) {
-            if (!urlList[ele.result.visitor_from]) {
-              urlList[ele.result.visitor_from] = []
-            }
-            urlList[ele.result.visitor_from].push(ele.result)
-          }
-        })
-        return new Promise(resolve => resolve(urlList))
-      }
-      checkClient(results).then((data) => {
+      // Table result
+      this.getUrlList(results).then((urlList) => {
+        var data = urlList['urls']
+        var cookies_info = urlList['cookies']
         this.websiteValueList = []
         this.websiteList = Object.keys(data)
         Object.keys(data).forEach(key => {
-          this.websiteValueList.push({ value: key, clickNum: data[key].length })
+          this.websiteValueList.push({ value: key, clickNum: data[key].length, visitorNum: cookies_info[key].length})
         })
       })
+      this.dateRange = [startDate, endDate]
     })
+
   },
   methods: {
     querySearch(queryString, cb) {
@@ -98,6 +148,56 @@ export default {
     changeToShow(targetLink) {
       this.activateItem = '2'
       this.$refs.heatmapShowPage.checkWebsite = targetLink
+      this.heatmapInfo = this.resultObject[targetLink]
+    },
+
+    changeHeatmapInfo(targetLink) {
+      this.heatmapInfo = this.resultObject[targetLink]
+    },
+
+    getUrlList(results) {
+      console.log(results)
+      var urlList = {}
+      urlList['urls'] = []
+      urlList['cookies'] = []
+      results.forEach(ele => {
+      //   urlList[ele.result.current_visiting_url] = ''
+        if (ele.result.current_visiting_url) {
+          var current_url = ele.result.current_visiting_url
+          if (!urlList['urls'][current_url]) {
+            urlList['urls'][current_url] = []
+            urlList['cookies'][current_url] = []
+          }
+          urlList['urls'][current_url].push(ele.result)
+          if (!urlList['cookies'][current_url].includes(ele.result.client_cookie_id)) {
+            urlList['cookies'][current_url].push(ele.result.client_cookie_id)
+          }
+          urlList['urls'][current_url].push(ele.result)
+        }
+      })
+      console.log(urlList)
+      this.resultObject = urlList['urls']
+      console.log(this.resultObject)
+      return new Promise(resolve => resolve(urlList))
+    },
+
+    filterByDate() {
+      if (this.dateRange[0]) {
+        var startDate = this.dateRange[0] + ' 23:59:59'
+        var endDate = this.dateRange[1] + ' 23:59:59'
+        getClickEventFiltDate({ token: this.token, startDate: startDate, endDate: endDate }).then( res => {
+          var results = res.data
+          // Table result
+          this.getUrlList(results).then((urlList) => {
+            var data = urlList['urls']
+            this.websiteValueList = []
+            this.websiteList = Object.keys(data)
+            Object.keys(data).forEach(key => {
+              this.websiteValueList.push({ value: key, clickNum: data[key].length })
+            })
+          })
+        })
+      }
     }
   }
 }
