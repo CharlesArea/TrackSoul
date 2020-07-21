@@ -80,6 +80,7 @@
         <el-row>
           <el-button style="float: left; width: 50%;" @click="dialog.visible = false">取 消</el-button>
           <el-button type="danger" style="float: right;" @click="addApp">完成</el-button>
+          <el-button type="warning" style="float: right;" @click="testConnet">測試</el-button>
         </el-row>
       </span>
     </el-dialog>
@@ -88,7 +89,12 @@
 
 <script>
 // import { updateAppDetail } from '@/api/appDetail'
+import axios from 'axios'
 import makeRandomStr from '@/utils/util'
+import { visit_website } from '@/api/appDetail'
+
+// axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
+
 export default {
   props: {
     value: {
@@ -120,7 +126,9 @@ export default {
       textarea: '',
       appName: '',
       appDescription: '',
-      appDomain: ''
+      appDomain: '',
+      appToken: '',
+      appKey: ''
     }
   },
   watch: {
@@ -151,9 +159,17 @@ export default {
           return
         }
       } else if (this.curStep === 2) {
-        if (!this.appName && !this.appDomain) {
+        if (!this.appName || !this.appDomain) {
           this.$message.error('Please name your application and domain')
           return
+        } else {
+          this.appToken = makeRandomStr(10)
+          this.appKey = makeRandomStr(20)
+          this.textarea = '<scri'
+          this.textarea += 'pt async id="TrackSoul" src="src/main.js"'
+          this.textarea += '\nclient_id="' + this.appToken + '"\nclient_key="' + this.appKey + '"\ndomain_name="' + this.appDomain + '"\ntype="module"/'
+          this.textarea += '>\n</sc'
+          this.textarea += 'ript>'
         }
       }
       this.curStep += 1
@@ -166,12 +182,16 @@ export default {
     addApp() {
       if (this.appName && this.appDomain) {
         // add value
-        var appToken = makeRandomStr(10)
-        var appKey = makeRandomStr(20)
+        // var appToken = makeRandomStr(10)
+        // var appKey = makeRandomStr(20)
+        var appToken = this.appToken
+        var appKey = this.appKey
         var appType = this.appList[this.selectedApp].appType
         this.$store.dispatch('user/updateApp', { appToken: appToken, appKey: appKey, type: appType, appName: this.appName, des: this.appDomain }).then(res => {
           this.appName = ''
           this.appDescription = ''
+          this.appToken = ''
+          this.appKey = ''
           this.dialog.visible = false
           this.closeDialog()
         }).catch(error => {
@@ -181,6 +201,13 @@ export default {
       } else {
         this.$message.error('Please name your application')
       }
+    },
+
+    testConnet() {
+      console.log('gogo test')
+      visit_website({url: this.appDomain, token: this.appToken}).then(res => {
+        this.$message('Tracking Success!!!')
+      })
     }
   }
 }

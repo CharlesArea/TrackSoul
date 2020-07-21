@@ -33,3 +33,11 @@ export function getClickEventFiltDate(data) {
     data
   })
 }
+
+export function visit_website(data) {
+  return request({
+    url: '/appDetail/visit_website',
+    method: 'post',
+    data
+  })
+}
