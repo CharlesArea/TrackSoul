@@ -13,7 +13,7 @@
     "bluebird": "^3.7.2",
     "express": "^4.17.1",
     "extract-zip": "^2.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.13",
     "multer": "^1.4.2",
