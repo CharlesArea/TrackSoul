@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.7.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "extract-zip": "^2.0.0",
     "moment": "^2.24.0",
     "mongodb": "^3.5.7",
